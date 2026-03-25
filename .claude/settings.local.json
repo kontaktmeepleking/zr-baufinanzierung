@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py --version)",
+      "Bash(where python3:*)",
+      "Bash(where py:*)",
+      "Bash(/c/Users/marti/AppData/Local/Microsoft/WindowsApps/python3.exe --version 2>&1)",
+      "Read(//c/Users/marti/AppData/Local/Programs/**)",
+      "Bash(ls /c/Python*)",
+      "Read(//c/Users/marti/**)",
+      "Bash(node:*)",
+      "Bash(node -e \"process.cwd\\(\\)\")",
+      "Bash(powershell.exe -Command \"\n\\\\$path = 'C:\\\\Mein Kram\\\\Franzis Ordner\\\\ZR von Franzi\\\\Website\\\\datenschutzerklaerung_www_zr_baufi_de_de.pdf'\nTest-Path \\\\$path\n\\(Get-Item \\\\$path\\).Length\n\" 2>&1)",
+      "Bash(xargs sed:*)",
+      "Bash(mv \"public/Images/Franzi+Anna Training.jpeg\" \"public/Images/franziska-ritsche-fitnesstrainerin-ems-training.jpeg\")",
+      "Bash(mv \"public/Images/Franzi auf der Baustelle.jpg\" \"public/Images/franziska-ritsche-hausbau-eigenheim-fredersdorf.jpg\")",
+      "Bash(mv \"public/Images/haus im bau 1.jpg\" \"public/Images/hausbau-fredersdorf-rohbau-mauerwerk.jpg\")",
+      "Bash(mv \"public/Images/haus im bau 2.jpg\" \"public/Images/hausbau-fredersdorf-dachstuhl-rohbau.jpg\")",
+      "Bash(cd:*)"
+    ]
+  }
+}
