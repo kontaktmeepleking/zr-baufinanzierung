@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -27,3 +25,29 @@ body {
   background: var(--weiss);
   overflow-x: hidden;
 }
+
+/* Text selection */
+::selection { background: rgba(187,159,213,0.28); }
+
+/* Staggered animation delays – used for sequential hero reveals */
+.fade-in-d1 { transition-delay: 0.08s; }
+.fade-in-d2 { transition-delay: 0.2s; }
+.fade-in-d3 { transition-delay: 0.35s; }
+.fade-in-d4 { transition-delay: 0.52s; }
+
+/* Link underline slide animation */
+.link-slide {
+  position: relative;
+  text-decoration: none;
+}
+.link-slide::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.32s ease;
+}
+.link-slide:hover::after { width: 100%; }

@@ -1,4 +1,5 @@
 import localFont from 'next/font/local'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const dmSans = localFont({
@@ -44,6 +45,14 @@ const schemaOrg = {
   url: 'https://www.zr-baufi.de',
   description: 'Persönliche Baufinanzierungsberatung mit Schwerpunkt Berlin & Brandenburg.',
   priceRange: 'Kostenlos & unverbindlich',
+  image: 'https://www.zr-baufi.de/images/zr-baufinanzierung-logo.png',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Lange Straße 37A',
+    addressLocality: 'Fredersdorf-Vogelsdorf',
+    postalCode: '15370',
+    addressCountry: 'DE',
+  },
 }
 
 export default function RootLayout({ children }) {
@@ -52,6 +61,7 @@ export default function RootLayout({ children }) {
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
         {children}
+        <Analytics />
       </body>
     </html>
   )

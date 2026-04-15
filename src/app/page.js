@@ -65,13 +65,15 @@ export default function Home() {
       <style>{`
         .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .btn-primary { background: var(--lila); color: white; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.2s; }
-        .btn-primary:hover { background: var(--lila-dark); transform: translateY(-1px); }
-        .btn-ghost { background: transparent; color: rgba(255,255,255,0.8); padding: 0.9rem 2rem; border: 1px solid rgba(255,255,255,0.25); border-radius: 2px; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
-        .btn-ghost:hover { border-color: var(--lila); color: var(--lila); }
-        .btn-dark { background: var(--anthrazit); color: white; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
-        .btn-dark:hover { background: #1a2428; }
-        .nav-logo { transition: transform 0.2s ease; display: block; }
+        .btn-primary { background: var(--lila); color: white; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.25s, transform 0.25s, box-shadow 0.25s; }
+        .btn-primary:hover { background: var(--lila-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(187,159,213,0.38); }
+        .btn-ghost { background: transparent; color: rgba(255,255,255,0.8); padding: 0.9rem 2rem; border: 1px solid rgba(255,255,255,0.22); border-radius: 2px; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.25s; }
+        .btn-ghost:hover { border-color: var(--lila); color: var(--lila); box-shadow: 0 6px 24px rgba(187,159,213,0.15); transform: translateY(-1px); }
+        .btn-dark { background: var(--anthrazit); color: white; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.25s, box-shadow 0.25s, transform 0.25s; }
+        .btn-dark:hover { background: #1a2428; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(-1px); }
+        .leistung-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .leistung-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.28); }
+        .nav-logo { transition: transform 0.2s ease; display: block; text-decoration: none; }
         .nav-logo:hover { transform: scale(1.07); }
         .nav-link { transition: color 0.3s, border-color 0.3s, transform 0.2s ease; display: inline-block; }
         .nav-link:hover { transform: scale(1.08); }
@@ -129,7 +131,8 @@ export default function Home() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         background: 'var(--anthrazit)', padding: '0 5%', height: 88,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between'
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        borderBottom: 'none'
       }}>
         <a href="/" className="nav-logo"><Image
           src="/images/zr-baufinanzierung-logo.png"
@@ -161,28 +164,29 @@ export default function Home() {
 
       {/* HERO */}
       <section id="hero" className="hero-grid" style={{
-        minHeight: '100vh', background: 'var(--anthrazit)',
+        minHeight: '100vh', background: 'linear-gradient(148deg, #27292e 0%, #2F3338 45%, #2c2538 100%)',
         display: 'grid', gridTemplateColumns: '1fr 1fr',
         alignItems: 'center', paddingTop: 88, position: 'relative', overflow: 'hidden'
       }}>
-
+        {/* Atmospheric layers */}
+        <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '65%', background: 'radial-gradient(ellipse 75% 68% at 68% 38%, rgba(187,159,213,0.13) 0%, rgba(187,159,213,0.04) 52%, transparent 74%)', pointerEvents: 'none', zIndex: 1 }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '28%', background: 'linear-gradient(to top, rgba(25,20,38,0.4) 0%, transparent 100%)', pointerEvents: 'none', zIndex: 2 }} />
 
         {/* Hero Top: Label + H1 */}
-        <div className="fade-in hero-top" style={{ padding: '0 5% 0 8%', position: 'relative', zIndex: 3, gridColumn: 1, gridRow: 1 }}>
-          <p className="hero-label" style={{ fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.5rem', marginTop: '3rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
+        <div className="hero-top" style={{ padding: '0 5% 0 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 1 }}>
+          <p className="fade-in fade-in-d1 hero-label" style={{ fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.25rem', marginTop: '3rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ display: 'inline-block', width: 36, height: 1, background: 'var(--lila)' }}></span>
             Franziska Ritsche
-            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
+            <span style={{ display: 'inline-block', width: 36, height: 1, background: 'var(--lila)' }}></span>
           </p>
-          <h1 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(2.7rem, 4.5vw, 4.95rem)', fontWeight: 600, color: 'white', lineHeight: 1.05, marginBottom: 0, marginTop: '0.5rem' }}>
-            Ihre Expertin<br />
-            für Baufinanzierung –<br />
-            <em style={{ fontStyle: 'italic', color: 'var(--lila)' }}>Eine Sorge weniger.</em>
+          <h1 className="fade-in fade-in-d2" style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 600, lineHeight: 1.05, marginBottom: 0 }}>
+            <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2rem, 3.6vw, 4rem)' }}>Ihre Expertin für Baufinanzierung&nbsp;–</span>
+            <em style={{ color: 'var(--lila)', fontStyle: 'italic', display: 'block', fontSize: 'clamp(2.8rem, 5.5vw, 5.8rem)' }}>Eine Sorge weniger.</em>
           </h1>
         </div>
 
         {/* Hero Bild */}
-        <div className="hero-img-wrap" style={{ position: 'relative', zIndex: 3, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', alignSelf: 'stretch', gridColumn: 2, gridRow: '1 / 4' }}>
+        <div className="hero-img-wrap fade-in fade-in-d2" style={{ position: 'relative', zIndex: 4, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', alignSelf: 'stretch', gridColumn: 2, gridRow: '1 / 4' }}>
           <Image
             src="/images/franziska-ritsche.png"
             alt="Franziska Ritsche – Baufinanzierungsberaterin Berlin Brandenburg"
@@ -195,7 +199,7 @@ export default function Home() {
         </div>
 
         {/* Hero Bottom: Subtext + Buttons */}
-        <div className="hero-bottom" style={{ padding: '3rem 5% 0 8%', position: 'relative', zIndex: 3, gridColumn: 1, gridRow: 2 }}>
+        <div className="hero-bottom fade-in fade-in-d3" style={{ padding: '3rem 5% 0 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 2 }}>
           <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.7, maxWidth: 440, marginBottom: '1.1rem', fontWeight: 300 }}>
             Ich begleite Sie von der ersten Idee bis zur letzten Rate –
             mit Durchblick, Klartext und echter Begeisterung für Ihre Situation.
@@ -215,7 +219,7 @@ export default function Home() {
         </div>
 
         {/* Stats */}
-        <div className="hero-stats" style={{ display: 'flex', gap: '2.5rem', padding: '3rem 5% 5rem 8%', position: 'relative', zIndex: 3, gridColumn: 1, gridRow: 3 }}>
+        <div className="hero-stats fade-in fade-in-d4" style={{ display: 'flex', gap: '2.5rem', padding: '3rem 5% 5rem 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 3 }}>
           {[['500+','Bankpartner'],['100%','Kostenlos für Sie'],['5★','Google Bewertung']].map(([num, label]) => (
             <div key={label}>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>{num}</div>
@@ -247,7 +251,7 @@ export default function Home() {
             ['05', 'Schnell & Digital', 'Beratung per Video, Telefon oder vor Ort – flexibel nach Ihrem Zeitplan. Digitale Prozesse, persönlicher Service.'],
             ['06', '100% kostenlos für Sie', 'Als unabhängige Vermittlerin werde ich von der Bank vergütet – für Sie entstehen keine Mehrkosten.'],
           ].map(([num, title, text]) => (
-            <div key={num} className="fade-in" style={{ background: 'var(--anthrazit)', padding: '2.5rem' }}>
+            <div key={num} className="fade-in leistung-card" style={{ background: 'var(--anthrazit)', padding: '2.5rem' }}>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '3.5rem', fontWeight: 400, color: 'rgba(187,159,213,0.5)', lineHeight: 1, marginBottom: '1rem' }}>{num}</div>
               <div style={{ fontSize: '1rem', fontWeight: 500, color: 'white', marginBottom: '0.75rem' }}>{title}</div>
               <div style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300 }}>{text}</div>
