@@ -155,7 +155,7 @@ export default function WarumIch() {
             src="/images/franziska-ritsche.png"
             alt="Franziska Ritsche – ZR Baufinanzierung"
             width={575} height={1081} priority
-            style={{ height: 'calc(100vh - 88px)', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'bottom' }}
+            style={{ height: 'calc(100vh - 88px)', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'bottom', transform: 'scaleX(-1)' }}
           />
           <div className="wi-hero-img-fade" style={{ display: 'none', position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(to bottom, transparent, var(--anthrazit))', pointerEvents: 'none' }} />
         </div>
