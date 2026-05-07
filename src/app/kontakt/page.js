@@ -198,16 +198,10 @@ export default function Kontakt() {
 
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
 
-                  {/* Vorname + Nachname */}
-                  <div className="k-names-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'var(--anthrazit)', marginBottom: '0.4rem' }}>Vorname</label>
-                      <input name="vorname" required className="kontakt-input" style={inputStyle} placeholder="Max" />
-                    </div>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'var(--anthrazit)', marginBottom: '0.4rem' }}>Nachname</label>
-                      <input name="nachname" required className="kontakt-input" style={inputStyle} placeholder="Mustermann" />
-                    </div>
+                  {/* Name */}
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'var(--anthrazit)', marginBottom: '0.4rem' }}>Name</label>
+                    <input name="name" required className="kontakt-input" style={inputStyle} placeholder="Max Mustermann" />
                   </div>
 
                   {/* E-Mail */}

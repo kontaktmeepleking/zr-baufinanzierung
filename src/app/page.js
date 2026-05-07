@@ -202,7 +202,7 @@ export default function Home() {
             width={575}
             height={1081}
             priority
-            style={{ height: 'calc((100vh - 88px) * 0.95)', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'bottom' }}
+            style={{ height: 'calc((100vh - 88px) * 0.95)', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'bottom', transform: 'scaleX(-1)' }}
           />
           <div className="hero-img-fade" style={{ display: 'none', position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, transparent, #2F3338)', pointerEvents: 'none' }} />
         </div>
