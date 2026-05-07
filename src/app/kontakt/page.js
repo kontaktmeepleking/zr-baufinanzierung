@@ -81,7 +81,7 @@ export default function Kontakt() {
           <Image src="/images/zr-baufinanzierung-logo.png" alt="ZR Baufinanzierung" width={160} height={80} style={{ height: 64, width: 'auto', display: 'block' }} />
         </a>
         <ul className="nav-links-kontakt" style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
-          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/warum-ich','Warum ich?']].map(([href, label]) => (
+          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/forderdarlehen-und-zuschusse','Förderung'],['/warum-ich','Warum ich?']].map(([href, label]) => (
             <li key={href}>
               <a href={href} className="nav-link" style={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'none', fontSize: '0.88rem', letterSpacing: '0.04em', borderBottom: '1px solid transparent', paddingBottom: '2px' }}>{label}</a>
             </li>
@@ -95,7 +95,7 @@ export default function Kontakt() {
         </button>
       </nav>
       <div className={`k-mobile-menu${menuOpen ? ' open' : ''}`}>
-        {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/warum-ich','Warum ich?']].map(([href, label]) => (
+        {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/forderdarlehen-und-zuschusse','Förderung'],['/warum-ich','Warum ich?']].map(([href, label]) => (
           <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
         ))}
         <a href="/kontakt" onClick={() => setMenuOpen(false)} style={{ background: 'var(--lila)', color: 'white', padding: '0.5rem 1.25rem', borderRadius: 2, fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', display: 'inline-block', width: 'fit-content' }}>Beratung anfragen</a>

@@ -23,8 +23,8 @@ const cormorant = localFont({
 })
 
 export const metadata = {
-  title: 'ZR Baufinanzierung – Eine Sorge weniger | Franziska Ritsche',
-  description: 'Baufinanzierung mit Durchblick. Spezialisiert auf Berlin & Brandenburg. Franziska Ritsche begleitet Sie von der Strategie bis zur letzten Rate – persönlich, ehrlich, auf Augenhöhe. Kostenlos & unverbindlich.',
+  title: 'Baufinanzierung Berlin & Brandenburg | Franziska Ritsche – ZR Baufinanzierung',
+  description: 'Kostenlos & unverbindlich: Ihre Baufinanzierung in Berlin & Brandenburg. Franziska Ritsche – persönlich, ehrlich, über 500 Bankpartner. Jetzt Erstgespräch vereinbaren.',
   keywords: 'Baufinanzierung Berlin, Baufinanzierung Brandenburg, Immobilienfinanzierung Berlin, Baufinanzierung Selbstständige, Baufinanzierung für Selbstständige Berlin, Immobilienkredit Selbstständige, Baukredit Unternehmer Berlin, Anschlussfinanzierung Berlin, Umschuldung Hauskredit Berlin, Forward Darlehen Berlin, Baufinanzierung trotz Selbstständigkeit, Finanzierung Freiberufler, Baufinanzierungsberater Berlin, Franziska Ritsche, ZR Baufinanzierung, Baufinanzierung Fredersdorf, Baufinanzierungsberatung Berlin Brandenburg',
   openGraph: {
     title: 'ZR Baufinanzierung – Eine Sorge weniger | Berlin & Brandenburg',

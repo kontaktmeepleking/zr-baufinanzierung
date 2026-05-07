@@ -27,10 +27,10 @@ export default function WarumIch() {
         html, body { overflow-x: hidden; }
         .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-        .btn-primary { background: var(--lila); color: white; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s, transform 0.2s; }
-        .btn-primary:hover { background: var(--lila-dark); transform: translateY(-1px); }
-        .btn-ghost { background: transparent; color: rgba(255,255,255,0.8); padding: 0.9rem 2rem; border: 1px solid rgba(255,255,255,0.25); border-radius: 2px; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
-        .btn-ghost:hover { border-color: var(--lila); color: var(--lila); }
+        .btn-primary { background: var(--lila); color: white; padding: 0.9rem 2rem; border: none; border-radius: 2px; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.25s, transform 0.25s, box-shadow 0.25s; }
+        .btn-primary:hover { background: var(--lila-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(187,159,213,0.38); }
+        .btn-ghost { background: transparent; color: rgba(255,255,255,0.8); padding: 0.9rem 2rem; border: 1px solid rgba(255,255,255,0.22); border-radius: 2px; font-size: 0.9rem; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.25s; }
+        .btn-ghost:hover { border-color: var(--lila); color: var(--lila); box-shadow: 0 6px 24px rgba(187,159,213,0.15); transform: translateY(-1px); }
         .nav-logo { transition: transform 0.2s ease; display: block; }
         .nav-logo:hover { transform: scale(1.07); }
         .nav-link { transition: color 0.3s, border-color 0.3s, transform 0.2s ease; display: inline-block; }
@@ -86,19 +86,23 @@ export default function WarumIch() {
           .wi-cta-btns { flex-direction: column !important; align-items: stretch !important; }
           .wi-cta-btns a { width: 100% !important; text-align: center; box-sizing: border-box; }
         }
+        @keyframes float-pulse { 0% { box-shadow: 0 2px 8px rgba(0,0,0,0.25); } 40% { box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 0 18px 4px rgba(187,159,213,0.5); } 100% { box-shadow: 0 2px 8px rgba(0,0,0,0.25); } }
+        .float-btn { animation: float-pulse 1.2s ease-in-out 5s 1; }
+        .float-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(187,159,213,0.5); }
       `}</style>
 
       {/* NAV */}
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         background: 'var(--anthrazit)', padding: '0 5%', height: 88,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between'
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        borderBottom: '1px solid rgba(187,159,213,0.13)'
       }}>
         <a href="/" className="nav-logo">
           <Image src="/images/zr-baufinanzierung-logo.png" alt="ZR Baufinanzierung" width={160} height={80} style={{ height: 64, width: 'auto', display: 'block' }} />
         </a>
         <ul className="wi-nav-links">
-          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/warum-ich','Warum ich?']].map(([href, label]) => (
+          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/forderdarlehen-und-zuschusse','Förderung'],['/warum-ich','Warum ich?']].map(([href, label]) => (
             <li key={href}><a href={href} className="nav-link" style={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'none', fontSize: '0.88rem', letterSpacing: '0.04em', borderBottom: label === 'Warum ich?' ? '1px solid var(--lila)' : '1px solid transparent', paddingBottom: '2px' }}>{label}</a></li>
           ))}
           <li><a href="/kontakt" style={{ background: 'var(--lila)', color: 'white', padding: '0.5rem 1.25rem', borderRadius: 2, fontSize: '0.88rem', fontWeight: 500, textDecoration: 'none' }}>Beratung anfragen</a></li>
@@ -111,7 +115,7 @@ export default function WarumIch() {
       </nav>
       {menuOpen && (
         <div className="wi-mobile-menu">
-          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/warum-ich','Warum ich?']].map(([href, label]) => (
+          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/forderdarlehen-und-zuschusse','Förderung'],['/warum-ich','Warum ich?']].map(([href, label]) => (
             <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
           <a href="/kontakt" className="mob-cta" onClick={() => setMenuOpen(false)}>Beratung anfragen</a>
@@ -120,19 +124,23 @@ export default function WarumIch() {
 
       {/* HERO */}
       <section className="wi-hero-section" style={{
-        minHeight: '100vh', background: 'var(--anthrazit)',
+        minHeight: '100vh', background: 'linear-gradient(148deg, #27292e 0%, #2F3338 45%, #2c2538 100%)',
         paddingTop: 88, position: 'relative', overflow: 'hidden',
         display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'stretch'
       }}>
+        {/* Atmospheric layers */}
+        <div style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: '65%', background: 'radial-gradient(ellipse 75% 68% at 68% 38%, rgba(187,159,213,0.13) 0%, rgba(187,159,213,0.04) 52%, transparent 74%)', pointerEvents: 'none', zIndex: 1 }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '28%', background: 'linear-gradient(to top, rgba(25,20,38,0.4) 0%, transparent 100%)', pointerEvents: 'none', zIndex: 2 }} />
+        <div style={{ position: 'absolute', top: 88, left: '8%', width: 52, height: 1, background: 'var(--lila)', opacity: 0.55, pointerEvents: 'none', zIndex: 3 }} />
 
         {/* Left: Text + Subtext */}
-        <div className="fade-in wi-hero-text" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '4rem 5% 4rem 8%', position: 'relative', zIndex: 3 }}>
+        <div className="fade-in wi-hero-text" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '4rem 5% 4rem 8%', position: 'relative', zIndex: 4 }}>
           <p style={{ fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
             Meine Geschichte
             <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
           </p>
-          <h1 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(3rem, 5vw, 5.5rem)', fontWeight: 600, color: 'white', lineHeight: 1.05, marginBottom: '2rem' }}>
+          <h1 style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(3.2rem, 5.4vw, 6rem)', fontWeight: 600, color: 'white', lineHeight: 1.04, marginBottom: '2rem' }}>
             Ich weiß, wie es sich<br className="wi-hero-br" />{' '}
             <em className="wi-hero-anfuehlt" style={{ fontStyle: 'italic', color: 'var(--lila)' }}>anfühlt.</em>
           </h1>
@@ -334,6 +342,12 @@ export default function WarumIch() {
           </div>
         </div>
       </section>
+
+      {/* FLOATING CONTACT BUTTON */}
+      <a href="/kontakt" className="float-btn" style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 200, background: 'var(--lila)', color: 'white', padding: '0.85rem 1.4rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 500, textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '0.6rem', transition: 'transform 0.25s, box-shadow 0.25s', maxWidth: '280px', lineHeight: 1.3 }}>
+        <svg style={{ flexShrink: 0 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span style={{ display: 'flex', flexDirection: 'column' }}><span>Sie haben noch Fragen?</span><span>Kontaktieren Sie mich gerne.</span></span>
+      </a>
 
       {/* FOOTER */}
       <footer className="wi-footer" style={{ background: 'var(--anthrazit)', padding: '3rem 8%', borderTop: '1px solid rgba(255,255,255,0.08)' }}>

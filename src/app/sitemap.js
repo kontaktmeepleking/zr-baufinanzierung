@@ -15,6 +15,12 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/forderdarlehen-und-zuschusse`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/warum-ich`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

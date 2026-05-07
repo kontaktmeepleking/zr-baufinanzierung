@@ -101,7 +101,11 @@ export default function Home() {
           .hero-bottom p { max-width: 100% !important; margin-top: 0 !important; text-align: center; }
           .hero-buttons { flex-direction: column !important; align-items: center; }
           .hero-buttons a { width: 100% !important; text-align: center; box-sizing: border-box; }
-          .hero-stats { order: 4; grid-column: 1 !important; grid-row: auto !important; padding: 1rem 2rem 3rem !important; justify-content: center !important; text-align: center; }
+          .hero-stats { order: 4; grid-column: 1 !important; grid-row: auto !important; padding: 1rem 2rem 3rem !important; justify-content: center !important; text-align: center; gap: 1.5rem !important; flex-wrap: wrap !important; }
+          .hero-bottom p { overflow-wrap: break-word; word-break: break-word; }
+          #hero { overflow-x: hidden; }
+          .hero-phone { justify-content: center !important; flex-wrap: wrap !important; gap: 0.3rem 0.5rem !important; }
+          .hero-phone-sub { display: none !important; }
           .grid-2col { grid-template-columns: 1fr !important; gap: 2rem !important; }
           .unterschied-text  { order: 1; grid-column: auto !important; grid-row: auto !important; }
           .unterschied-img   { order: 2; grid-column: auto !important; grid-row: auto !important; height: 280px !important; }
@@ -124,7 +128,12 @@ export default function Home() {
           .stimmen-wrapper { display: flex; flex-direction: column; }
           .projekt-section { order: 1; }
           .stimmen-section { order: 2; }
+          .foerderung-teaser-img { display: none !important; }
+          .foerderung-teaser-card { padding-right: 8% !important; }
         }
+        @keyframes float-pulse { 0% { box-shadow: 0 2px 8px rgba(0,0,0,0.25); } 40% { box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 0 18px 4px rgba(187,159,213,0.5); } 100% { box-shadow: 0 2px 8px rgba(0,0,0,0.25); } }
+        .float-btn { animation: float-pulse 1.2s ease-in-out 5s 1; }
+        .float-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(187,159,213,0.5); }
       `}</style>
 
       {/* NAV */}
@@ -142,7 +151,7 @@ export default function Home() {
           style={{ height: 64, width: 'auto', display: 'block' }}
         /></a>
         <ul className="nav-links">
-          {[['#leistungen','Leistungen','leistungen'],['#fuer-wen','Für wen?','fuer-wen'],['#stimmen','Kundenstimmen','stimmen'],['#rechner','Rechner','rechner'],['/selbststaendige','Selbstständige','selbststaendige'],['/warum-ich','Warum ich?','warum-ich']].map(([href, label, id]) => (
+          {[['#leistungen','Leistungen','leistungen'],['#fuer-wen','Für wen?','fuer-wen'],['#stimmen','Kundenstimmen','stimmen'],['#rechner','Rechner','rechner'],['/selbststaendige','Selbstständige','selbststaendige'],['/forderdarlehen-und-zuschusse','Förderung','forderdarlehen'],['/warum-ich','Warum ich?','warum-ich']].map(([href, label, id]) => (
             <li key={href}><a href={href} className="nav-link" style={{ color: activeSection === id ? 'white' : 'rgba(255,255,255,0.75)', textDecoration: 'none', fontSize: '0.88rem', letterSpacing: '0.04em', borderBottom: id && activeSection === id ? '1px solid var(--lila)' : '1px solid transparent', paddingBottom: '2px' }}>{label}</a></li>
           ))}
           <li><a href="/kontakt" style={{ background: 'var(--lila)', color: 'white', padding: '0.5rem 1.25rem', borderRadius: 2, fontSize: '0.88rem', fontWeight: 500, textDecoration: 'none' }}>Beratung anfragen</a></li>
@@ -155,7 +164,7 @@ export default function Home() {
       </nav>
       {menuOpen && (
         <div className="nav-mobile-menu">
-          {[['#leistungen','Leistungen'],['#fuer-wen','Für wen?'],['#stimmen','Kundenstimmen'],['#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/warum-ich','Warum ich?']].map(([href, label]) => (
+          {[['#leistungen','Leistungen'],['#fuer-wen','Für wen?'],['#stimmen','Kundenstimmen'],['#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/forderdarlehen-und-zuschusse','Förderung'],['/warum-ich','Warum ich?']].map(([href, label]) => (
             <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
           <a href="/kontakt" className="mob-cta" onClick={() => setMenuOpen(false)}>Beratung anfragen</a>
@@ -181,7 +190,7 @@ export default function Home() {
           </p>
           <h1 className="fade-in fade-in-d2" style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 600, lineHeight: 1.05, marginBottom: 0 }}>
             <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2rem, 3.6vw, 4rem)' }}>Ihre Expertin für Baufinanzierung&nbsp;–</span>
-            <em style={{ color: 'var(--lila)', fontStyle: 'italic', display: 'block', fontSize: 'clamp(2.8rem, 5.5vw, 5.8rem)' }}>Eine Sorge weniger.</em>
+            <em style={{ color: 'var(--lila)', fontStyle: 'italic', display: 'block', fontSize: 'clamp(1.9rem, 7vw, 5.8rem)' }}>Eine Sorge weniger.</em>
           </h1>
         </div>
 
@@ -209,12 +218,12 @@ export default function Home() {
             <a href="/kontakt" className="btn-primary">Kostenloses Erstgespräch</a>
             <a href="#rechner" className="btn-ghost">Finanzierung berechnen</a>
           </div>
-          <a href="tel:+4917684405479" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.25rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+          <a href="tel:+4917684405479" className="hero-phone" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.25rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--lila)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.31a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 18z"/>
             </svg>
             <span style={{ fontWeight: 500 }}>0176 84 40 54 79</span>
-            <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem' }}>· Auch abends & am Wochenende erreichbar</span>
+            <span className="hero-phone-sub" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem' }}>· Auch abends & am Wochenende erreichbar</span>
           </a>
         </div>
 
@@ -384,7 +393,34 @@ export default function Home() {
         ))}
       </div>
 
-      <div style={{ background: 'var(--hell)', height: '3.5rem' }}></div>
+      {/* FÖRDERUNG TEASER */}
+      <div style={{ background: 'var(--hell)', padding: '3.5rem 8% 3.5rem' }}>
+      <div className="fade-in foerderung-teaser-card" style={{ background: 'var(--anthrazit)', padding: '3.5rem 8%', textAlign: 'center', maxWidth: 1000, margin: '0 auto', borderRadius: 4, position: 'relative', overflow: 'hidden' }}>
+          <p style={{ fontSize: '0.72rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+            <span style={{ display: 'inline-block', width: 16, height: 1, background: 'var(--lila)' }}></span>
+            Staatliche Förderung
+            <span style={{ display: 'inline-block', width: 16, height: 1, background: 'var(--lila)' }}></span>
+          </p>
+          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 600, color: 'white', lineHeight: 1.2, marginBottom: '0.75rem' }}>
+            Viele lassen Tausende Euro liegen –<br /><em style={{ color: 'var(--lila)', fontStyle: 'italic' }}>ohne es zu wissen.</em>
+          </p>
+          <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.55)', fontWeight: 300, maxWidth: 540, margin: '0 auto 1.75rem' }}>
+            Es gibt zahlreiche KfW-Programme und BAFA-Zuschüsse.<br />Lassen Sie uns direkt schauen,<br />welche für Sie in Frage kommen.
+          </p>
+          <a href="/forderdarlehen-und-zuschusse" style={{ background: 'var(--lila)', color: 'white', padding: '0.9rem 1.75rem', borderRadius: 2, fontSize: '0.88rem', fontWeight: 500, textDecoration: 'none', display: 'inline-block', transition: 'background 0.25s' }}>
+            Fördermöglichkeiten entdecken →
+          </a>
+          <Image
+            src="/images/franziska-ritsche-baufinanzierungsberaterin-berlin.png"
+            alt="Franziska Ritsche"
+            width={900}
+            height={977}
+            className="foerderung-teaser-img"
+            style={{ position: 'absolute', bottom: 0, left: '2%', height: '90%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom', pointerEvents: 'none' }}
+          />
+      </div>
+      </div>
+
       {/* Trenner: weißer Balken */}
       <div style={{ background: 'white', height: '6rem', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Image src="/images/zr-baufinanzierung-logo.png" alt="" width={160} height={80} style={{ height: '5rem', width: 'auto', opacity: 0.07, filter: 'invert(1) grayscale(100%)', pointerEvents: 'none', userSelect: 'none' }} />
@@ -574,6 +610,12 @@ export default function Home() {
           <a href="tel:+4917684405479" className="btn-dark">Direkt anrufen</a>
         </div>
       </section>
+
+      {/* FLOATING CONTACT BUTTON */}
+      <a href="/kontakt" className="float-btn" style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 200, background: 'var(--lila)', color: 'white', padding: '0.85rem 1.4rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 500, textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '0.6rem', transition: 'transform 0.25s, box-shadow 0.25s', maxWidth: '280px', lineHeight: 1.3 }}>
+        <svg style={{ flexShrink: 0 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span style={{ display: 'flex', flexDirection: 'column' }}><span>Sie haben noch Fragen?</span><span>Kontaktieren Sie mich gerne.</span></span>
+      </a>
 
       {/* FOOTER */}
       <footer className="footer-inner" style={{ background: 'var(--anthrazit)', padding: '3rem 8%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>

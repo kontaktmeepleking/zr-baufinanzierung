@@ -17,6 +17,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -24,6 +26,7 @@ body {
   color: var(--text);
   background: var(--weiss);
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Text selection */

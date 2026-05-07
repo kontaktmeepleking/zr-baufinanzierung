@@ -35,6 +35,9 @@ export default function Datenschutz() {
           .ds-footer { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 1.25rem !important; padding: 2.5rem 6% !important; }
           .ds-footer ul { flex-wrap: wrap !important; justify-content: center !important; gap: 1rem 1.5rem !important; padding: 0 !important; }
         }
+        @keyframes float-pulse { 0% { box-shadow: 0 2px 8px rgba(0,0,0,0.25); } 40% { box-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 0 18px 4px rgba(187,159,213,0.5); } 100% { box-shadow: 0 2px 8px rgba(0,0,0,0.25); } }
+        .float-btn { animation: float-pulse 1.2s ease-in-out 5s 1; }
+        .float-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(187,159,213,0.5); }
       `}</style>
 
       {/* NAV */}
@@ -47,7 +50,7 @@ export default function Datenschutz() {
           <Image src="/images/zr-baufinanzierung-logo.png" alt="ZR Baufinanzierung" width={160} height={80} style={{ height: 64, width: 'auto', display: 'block' }} />
         </a>
         <ul className="ds-nav-links">
-          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/warum-ich','Warum ich?']].map(([href, label]) => (
+          {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/forderdarlehen-und-zuschusse','Förderung'],['/warum-ich','Warum ich?']].map(([href, label]) => (
             <li key={href}>
               <a href={href} className="nav-link" style={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'none', fontSize: '0.88rem', letterSpacing: '0.04em', borderBottom: '1px solid transparent', paddingBottom: '2px' }}>{label}</a>
             </li>
@@ -61,7 +64,7 @@ export default function Datenschutz() {
         </button>
       </nav>
       <div className={`ds-mobile-menu${menuOpen ? ' open' : ''}`}>
-        {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/warum-ich','Warum ich?']].map(([href, label]) => (
+        {[['/#leistungen','Leistungen'],['/#fuer-wen','Für wen?'],['/#stimmen','Kundenstimmen'],['/#rechner','Rechner'],['/selbststaendige','Selbstständige'],['/forderdarlehen-und-zuschusse','Förderung'],['/warum-ich','Warum ich?']].map(([href, label]) => (
           <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
         ))}
         <a href="/kontakt" onClick={() => setMenuOpen(false)} style={{ background: 'var(--lila)', color: 'white', padding: '0.5rem 1.25rem', borderRadius: 2, fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', display: 'inline-block', width: 'fit-content' }}>Beratung anfragen</a>
@@ -210,6 +213,18 @@ export default function Datenschutz() {
             <p style={p}>Das Unternehmen verfügt über eine Zertifizierung nach dem „EU-US Data Privacy Framework" (DPF). Weitere Informationen erhalten Sie vom Anbieter unter:{' '}
               <a href="https://www.dataprivacyframework.gov/participant/5780" target="_blank" rel="noopener noreferrer" style={a}>dataprivacyframework.gov</a></p>
 
+            <h3 style={h3}>Eingebetteter Finanzierungsrechner (Europace)</h3>
+            <p style={p}>Auf dieser Website ist ein Finanzierungsrechner des Dienstleisters Europace AG, Klosterstraße 71, 10179 Berlin, eingebunden. Der Rechner wird als eingebettetes Element (iFrame) auf unserer Website dargestellt.</p>
+            <p style={p}>Bei der Nutzung des Rechners können Ihre Eingaben sowie technische Informationen (z. B. IP-Adresse, Browser-Typ, Betriebssystem) an die Server von Europace übertragen werden. Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bereitstellung eines funktionalen Finanzierungsrechners) sowie auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Sie den Rechner zur Vorbereitung einer Finanzierungsanfrage nutzen.</p>
+            <p style={{ ...p, marginBottom: 0 }}>Weitere Informationen zur Datenverarbeitung durch Europace entnehmen Sie der Datenschutzerklärung von Europace AG unter:{' '}
+              <a href="https://www.europace.de/datenschutz" target="_blank" rel="noopener noreferrer" style={a}>www.europace.de/datenschutz</a>.
+            </p>
+
+            <h3 style={h3}>Verlinkter Kundenbereich (fincrm)</h3>
+            <p style={p}>Diese Website enthält einen Link zu einem passwortgeschützten Kundenbereich, der technisch von der fincrm GmbH, Aachener Str. 376, 50933 Köln, bereitgestellt wird. Bei Aufruf oder Nutzung dieser Plattform gelten die Datenschutzbestimmungen von fincrm. Weitere Informationen finden Sie unter:{' '}
+              <a href="https://fincrm.de/datenschutz" target="_blank" rel="noopener noreferrer" style={a}>fincrm.de/datenschutz</a>.
+            </p>
+
             <h3 style={h3}>Google Fonts (lokales Hosting)</h3>
             <p style={p}>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Google Fonts, die von Google bereitgestellt werden. Die Google Fonts sind lokal installiert. Eine Verbindung zu Servern von Google findet dabei nicht statt.</p>
             <p style={{ ...p, marginBottom: 0 }}>Weitere Informationen zu Google Fonts finden Sie unter{' '}
@@ -222,6 +237,12 @@ export default function Datenschutz() {
 
         </div>
       </main>
+
+      {/* FLOATING CONTACT BUTTON */}
+      <a href="/kontakt" className="float-btn" style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 200, background: 'var(--lila)', color: 'white', padding: '0.85rem 1.4rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 500, textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '0.6rem', transition: 'transform 0.25s, box-shadow 0.25s', maxWidth: '280px', lineHeight: 1.3 }}>
+        <svg style={{ flexShrink: 0 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span style={{ display: 'flex', flexDirection: 'column' }}><span>Sie haben noch Fragen?</span><span>Kontaktieren Sie mich gerne.</span></span>
+      </a>
 
       {/* FOOTER */}
       <footer className="ds-footer" style={{ background: 'var(--anthrazit)', padding: '3rem 8%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
