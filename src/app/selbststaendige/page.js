@@ -387,7 +387,7 @@ export default function Selbststaendige() {
           <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Baufinanzierung</span>
         </div>
         <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
-          {[['/impressum', 'Impressum'], ['/datenschutz', 'Datenschutz'], ['#', 'Nutzungsbedingungen'], ['https://zr-baufi.fincrm.de/kundenbereich/login', 'Kundenbereich']].map(([href, label]) => (
+          {[['/impressum', 'Impressum'], ['/datenschutz', 'Datenschutz'], ['https://zr-baufi.fincrm.de/kundenbereich/login', 'Kundenbereich']].map(([href, label]) => (
             <li key={label}><a href={href} style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '0.8rem' }}>{label}</a></li>
           ))}
         </ul>
