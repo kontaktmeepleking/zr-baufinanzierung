@@ -1,5 +1,6 @@
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import './globals.css'
 
 const dmSans = localFont({
@@ -62,6 +63,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
