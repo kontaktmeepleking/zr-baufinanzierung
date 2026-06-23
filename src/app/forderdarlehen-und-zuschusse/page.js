@@ -91,11 +91,6 @@ export default function Foerderdarlehen() {
 
   return (
     <>
-      <head>
-        <title>KfW-Förderung & BAFA-Zuschuss 2025 | Förderdarlehen prüfen – ZR Baufinanzierung</title>
-        <meta name="description" content="Welche KfW-Förderung steht Ihnen zu? Ich prüfe kostenlos alle Programme: KfW-Kredit bis 270.000 €, BAFA-Zuschuss, Heizungsförderung. Jetzt beraten lassen – Berlin & Brandenburg." />
-      </head>
-
       <style>{`
         html, body { overflow-x: hidden; }
         .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -487,6 +482,12 @@ export default function Foerderdarlehen() {
             <a href="/kontakt" className="btn-primary">Jetzt Termin vereinbaren</a>
             <a href="tel:+4917684405479" className="btn-ghost">Direkt anrufen</a>
           </div>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', marginTop: '2rem', lineHeight: 1.7 }}>
+            Selbstständig oder Freiberufler?{' '}
+            <a href="/selbststaendige" style={{ color: 'var(--lila)', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.45)', paddingBottom: '1px' }}>
+              Besondere Hinweise zur Baufinanzierung für Selbstständige
+            </a>
+          </p>
         </div>
       </section>
 

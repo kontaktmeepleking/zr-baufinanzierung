@@ -176,6 +176,18 @@ export default function Kontakt() {
               </p>
               <cite style={{ fontSize: '0.82rem', color: 'var(--lila-dark)', fontStyle: 'normal', fontWeight: 500 }}>– Franziska Ritsche</cite>
             </blockquote>
+
+            <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(187,159,213,0.25)' }}>
+              <p style={{ fontSize: '0.78rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--lila-dark)', marginBottom: '0.75rem' }}>Noch informieren?</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <a href="/selbststaendige" style={{ fontSize: '0.88rem', color: 'var(--anthrazit)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <span style={{ color: 'var(--lila)', fontSize: '0.7rem' }}>▶</span> Baufinanzierung für Selbstständige
+                </a>
+                <a href="/forderdarlehen-und-zuschusse" style={{ fontSize: '0.88rem', color: 'var(--anthrazit)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <span style={{ color: 'var(--lila)', fontSize: '0.7rem' }}>▶</span> KfW-Förderung &amp; Zuschüsse prüfen
+                </a>
+              </div>
+            </div>
           </div>
 
           {/* RECHTE SPALTE – Formular */}

@@ -182,15 +182,16 @@ export default function Home() {
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '28%', background: 'linear-gradient(to top, rgba(25,20,38,0.4) 0%, transparent 100%)', pointerEvents: 'none', zIndex: 2 }} />
 
         {/* Hero Top: Label + H1 */}
-        <div className="hero-top" style={{ padding: '0 5% 0 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 1 }}>
-          <p className="fade-in fade-in-d1 hero-label" style={{ fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.25rem', marginTop: '3rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div className="hero-top" style={{ padding: '2.5rem 5% 0 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 1, textAlign: 'center' }}>
+          <p className="fade-in fade-in-d1 hero-label" style={{ fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.25rem', marginTop: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
             <span style={{ display: 'inline-block', width: 36, height: 1, background: 'var(--lila)' }}></span>
             Franziska Ritsche
             <span style={{ display: 'inline-block', width: 36, height: 1, background: 'var(--lila)' }}></span>
           </p>
-          <h1 className="fade-in fade-in-d2" style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 600, lineHeight: 1.05, marginBottom: 0 }}>
-            <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2rem, 3.6vw, 4rem)' }}>Ihre Expertin für Baufinanzierung&nbsp;–</span>
-            <em style={{ color: 'var(--lila)', fontStyle: 'italic', display: 'block', fontSize: 'clamp(1.9rem, 7vw, 5.8rem)' }}>Eine Sorge weniger.</em>
+          <h1 className="fade-in fade-in-d2" style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 600, lineHeight: 1.1, marginBottom: 0 }}>
+            <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2.2rem, 4vw, 4.5rem)' }}>Ihre Expertin für Baufinanzierung</span>
+            <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2.2rem, 4vw, 4.5rem)' }}>– in Berlin &amp; Brandenburg –</span>
+            <em style={{ color: 'var(--lila)', fontStyle: 'italic', display: 'block', fontSize: 'clamp(1.8rem, 6vw, 5rem)', marginTop: '0.5rem' }}>Eine Sorge weniger.</em>
           </h1>
         </div>
 
@@ -208,17 +209,17 @@ export default function Home() {
         </div>
 
         {/* Hero Bottom: Subtext + Buttons */}
-        <div className="hero-bottom fade-in fade-in-d3" style={{ padding: '3rem 5% 0 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 2 }}>
-          <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.7, maxWidth: 440, marginBottom: '1.1rem', fontWeight: 300 }}>
+        <div className="hero-bottom fade-in fade-in-d3" style={{ padding: '3rem 5% 0 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 2, textAlign: 'center' }}>
+          <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.7, maxWidth: 440, marginBottom: '1.1rem', fontWeight: 300, margin: '0 auto 1.1rem' }}>
             Ich begleite Sie von der ersten Idee bis zur letzten Rate –
             mit Durchblick, Klartext und echter Begeisterung für Ihre Situation.
             Mit Schwerpunkt Berlin & Brandenburg.
           </p>
-          <div className="hero-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div className="hero-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href="/kontakt" className="btn-primary">Kostenloses Erstgespräch</a>
             <a href="#rechner" className="btn-ghost">Finanzierung berechnen</a>
           </div>
-          <a href="tel:+4917684405479" className="hero-phone" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.25rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+          <a href="tel:+4917684405479" className="hero-phone" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '1.25rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--lila)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.31a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 18z"/>
             </svg>
@@ -228,7 +229,7 @@ export default function Home() {
         </div>
 
         {/* Stats */}
-        <div className="hero-stats fade-in fade-in-d4" style={{ display: 'flex', gap: '2.5rem', padding: '3rem 5% 5rem 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 3 }}>
+        <div className="hero-stats fade-in fade-in-d4" style={{ display: 'flex', gap: '2.5rem', padding: '3rem 5% 5rem 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 3, justifyContent: 'center' }}>
           {[['500+','Bankpartner'],['100%','Kostenlos für Sie'],['5★','Google Bewertung']].map(([num, label]) => (
             <div key={label}>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>{num}</div>
@@ -543,7 +544,7 @@ export default function Home() {
             Aus diesem Chaos wurde ein Zuhause.
           </h2>
           <p style={{ fontSize: '1rem', color: 'var(--text-light)', lineHeight: 1.8, fontWeight: 300, marginBottom: '1.5rem' }}>
-            Familie Arnold-Kern hat mir dieses Bild geschickt – als kleines Dankeschön nach der Modernisierung ihres Zweifamilienhauses. Ich war vom ersten Gespräch bis zur letzten Rate dabei. Genau dafür mache ich das.
+            Familie Arnold-Kern hat mir dieses Bild geschickt – als kleines Dankeschön nach der Modernisierung ihres Zweifamilienhauses. Ich war vom ersten Gespräch dabei. Genau dafür mache ich das.
           </p>
           <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.1rem', fontStyle: 'italic', color: 'var(--lila-dark)' }}>
             – Franziska Ritsche
@@ -572,6 +573,24 @@ export default function Home() {
             Berechnen Sie jetzt Ihre individuelle Finanzierung – mit echten aktuellen Konditionen von Europace, Deutschlands größter Baufinanzierungsplattform.
           </p>
         </div>
+
+        {/* Zins-Einordnung – targets "zinsen baufinanzierung" / "baufinanzierung zinsen" */}
+        <div className="fade-in" style={{ maxWidth: 760, margin: '0 auto 3rem', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(187,159,213,0.25)', borderRadius: 4, padding: '1.75rem 2rem' }}>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1rem' }}>Aktuelle Bauzinsen – Stand 2026</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem', marginBottom: '1.25rem' }}>
+            {[['10 Jahre', 'ab ~ 3,4 %'], ['15 Jahre', 'ab ~ 3,6 %'], ['20 Jahre', 'ab ~ 3,9 %']].map(([laufzeit, zins], i) => (
+              <div key={laufzeit} style={{ textAlign: 'center', borderLeft: i > 0 ? '1px solid rgba(187,159,213,0.2)' : 'none' }}>
+                <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', marginBottom: '0.3rem' }}>{laufzeit} Zinsbindung</p>
+                <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.4rem, 2.2vw, 1.8rem)', fontWeight: 600, color: 'white', lineHeight: 1 }}>{zins}</p>
+                <p style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', marginTop: '0.25rem' }}>eff. p.&thinsp;a.</p>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, textAlign: 'center' }}>
+            Bauzinsen ändern sich täglich und variieren je nach Eigenkapital, Beleihungsauslauf und Bonität. Der Rechner zeigt Ihnen sofort Ihre persönlichen Konditionen – auf Basis echter Marktdaten.
+          </p>
+        </div>
+
         <div style={{ maxWidth: 900, margin: '0 auto 2.5rem' }}>
           <Script
             src="https://baufi-passt.passt.aws.europace.de/baufi-passt-flex/baufi-passt-flex.js"
@@ -585,7 +604,9 @@ export default function Home() {
         </div>
         <div style={{ maxWidth: 560, margin: '1.75rem auto 0', borderTop: '1px solid rgba(187,159,213,0.35)', borderBottom: '1px solid rgba(187,159,213,0.35)', padding: '1.25rem 0', textAlign: 'center' }}>
           <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.85rem', lineHeight: 1.7 }}>
-            Der Rechner gibt Ihnen eine erste Orientierung. Für Ihre individuelle Finanzierungslösung – besonders als Selbstständige/r – sprechen wir gerne persönlich.
+            Der Rechner gibt Ihnen eine erste Orientierung. Für Ihre individuelle Finanzierungslösung –{' '}
+            <a href="/selbststaendige" style={{ color: 'var(--lila)', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.5)', paddingBottom: '1px' }}>besonders als Selbstständige/r</a>
+            {' '}– sprechen wir gerne persönlich.
           </p>
         </div>
       </section>
@@ -602,7 +623,7 @@ export default function Home() {
           Bereit für<br /><em style={{ fontStyle: 'italic', color: 'var(--lila-dark)' }}>eine Sorge weniger?</em>
         </h2>
         <p className="fade-in" style={{ fontSize: '1rem', color: 'var(--text-light)', lineHeight: 1.8, maxWidth: 480, margin: '0 auto 2.5rem', fontWeight: 300 }}>
-          Das erste Gespräch ist kostenlos, unverbindlich und dauert etwa 30 Minuten.
+          Das erste Gespräch ist kostenlos, unverbindlich und dauert etwa 60 Minuten.
           Danach wissen Sie, wo Sie stehen.
         </p>
         <div className="fade-in" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

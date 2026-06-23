@@ -42,6 +42,21 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/neubau',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/anschlussfinanzierung',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/einfache-erkl-rung-von-begriffen-der-baufinanzierung',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 };

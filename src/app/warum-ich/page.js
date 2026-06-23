@@ -340,6 +340,12 @@ export default function WarumIch() {
             <a href="/kontakt" className="btn-primary">Jetzt Termin vereinbaren</a>
             <a href="/" className="btn-ghost">Zurück zur Startseite</a>
           </div>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', marginTop: '2rem', lineHeight: 1.9 }}>
+            Oder zuerst informieren:{' '}
+            <a href="/selbststaendige" style={{ color: 'var(--lila)', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.45)', paddingBottom: '1px' }}>Baufinanzierung für Selbstständige</a>
+            {' '}·{' '}
+            <a href="/forderdarlehen-und-zuschusse" style={{ color: 'var(--lila)', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.45)', paddingBottom: '1px' }}>KfW-Förderung prüfen</a>
+          </p>
         </div>
       </section>
 

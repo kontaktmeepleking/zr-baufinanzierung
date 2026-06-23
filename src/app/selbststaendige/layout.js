@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Baufinanzierung für Selbstständige Berlin | Franziska Ritsche – ZR Baufinanzierung',
-  description: 'Selbstständig und trotzdem Eigenheim? Ich bereite Ihre Unterlagen bankfertig auf – trotz schwankendem Einkommen. Kostenlos & unverbindlich. Berlin & Brandenburg.',
+  title: 'Baufinanzierung für Selbstständige Berlin & Brandenburg | ZR Baufinanzierung',
+  description: 'Baufinanzierung für Selbstständige, Freiberufler & Unternehmer in Berlin & Brandenburg. Unterlagen bankfertig aufbereitet, über 500 Bankpartner, 100 % kostenlos.',
   keywords: 'Baufinanzierung Selbstständige, Baufinanzierung Freiberufler, Immobilienkredit Selbstständige Berlin, Baukredit Unternehmer Brandenburg, Baufinanzierung trotz Selbstständigkeit, Finanzierung schwankendes Einkommen, Eigenheim Selbstständige Berlin',
   openGraph: {
     title: 'Baufinanzierung für Selbstständige & Freiberufler | ZR Baufinanzierung',
