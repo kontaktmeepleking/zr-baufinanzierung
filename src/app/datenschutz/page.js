@@ -251,7 +251,7 @@ export default function Datenschutz() {
           <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Baufinanzierung</span>
         </div>
         <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
-          {[['/impressum','Impressum'],['/datenschutz','Datenschutz'],['https://zr-baufi.fincrm.de/kundenbereich/login','Kundenbereich']].map(([href, label]) => (
+          {[['/glossar','Glossar'],['/impressum','Impressum'],['/datenschutz','Datenschutz'],['https://zr-baufi.fincrm.de/kundenbereich/login','Kundenbereich']].map(([href, label]) => (
             <li key={label}><a href={href} style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none', fontSize: '0.8rem' }}>{label}</a></li>
           ))}
         </ul>

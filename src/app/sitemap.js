@@ -1,5 +1,14 @@
+import { glossarTerms } from '../data/glossar'
+
 export default function sitemap() {
   const baseUrl = 'https://www.zr-baufi.de'
+
+  const glossarEntries = glossarTerms.map(term => ({
+    url: `${baseUrl}/glossar/${term.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'yearly',
+    priority: 0.6,
+  }))
 
   return [
     {
@@ -32,6 +41,13 @@ export default function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/glossar`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    ...glossarEntries,
     {
       url: `${baseUrl}/impressum`,
       lastModified: new Date(),
