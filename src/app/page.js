@@ -50,7 +50,7 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    const timer = setInterval(() => setSliderIndex(i => (i + 1) % 3), 7000)
+    const timer = setInterval(() => setSliderIndex(i => (i + 1) % sliderTestimonials.length), 7000)
     return () => clearInterval(timer)
   }, [])
 
@@ -58,6 +58,9 @@ export default function Home() {
     ['Familie D., NRW', 'Kauf Einfamilienhaus · Volksbank + NRW-Bank · Juni 2024', '„Von der Eigenbedarfskündigung zum Eigenheim in kürzester Zeit. Wir sind so dankbar für den immer freundlichen Umgang, stets transparent und kundenorientiert."', null],
     ['Familie W. & K., Berlin', 'Ratenkredit · DKB · Juli 2024', '„Der gesamte Prozess war äußerst angenehm und effizient. Franziska war stets höflich, immer auf uns abgestimmt und auf Augenhöhe. Der Vorgang war transparent und professionell."', '/images/Familie-Windisch.jpg'],
     ['Familie Z., Altlandsberg', 'Anschlussfinanzierung · Commerzbank · Mai 2022', '„Franziska hat uns einen sensationellen Vertrag mit sehr guten Konditionen rausgeholt. Zum ersten Mal wurde für uns ein Vertrag gefunden, bei dem alle Parteien etwas davon hatten."', null],
+    ['Eckert T.', 'Ratenkredite & Bausparvertrag · seit 2023 · August 2026', '„Super Empfehlung. Ich arbeite mittlerweile seit 3 Jahren mit Frau Ritsche und habe 3 Finanzierungen zusammen abgeschlossen. Ob Ratenkredite oder Bausparer, sie kennt immer die passende Lösung."', null],
+    ['Daniel L.', 'Finanzierung Erbauseinandersetzung · August 2026', '„Ich kann Franziska Ritsche uneingeschränkt weiterempfehlen. Nachdem meine Hausbank mich im Stich gelassen hatte, stand ich vor der Herausforderung, kurzfristig eine solide Finanzierungslösung zu finden. Besonders beeindruckt hat mich ihre einfühlsame Art – sie war jederzeit für mich erreichbar, auch bei kurzfristigen Fragen."', null],
+    ['Gordon G.', 'Hauskauf · August 2026', '„Uns wurde der Kontakt zu Frau Ritsche vermittelt und sie hat uns bei unserem Projekt Hauskauf super beraten und geholfen. Wir haben uns sofort wohlgefühlt und Frau Ritsche hat uns unseren Traum ermöglichen können. Bei jeder Frage hatte sie eine Antwort."', null],
   ]
 
   return (
@@ -469,7 +472,7 @@ export default function Home() {
             <div style={{ width: '100%', maxWidth: 760, position: 'relative' }}>
               {/* Pfeil links */}
               <button
-                onClick={() => setSliderIndex(i => (i + 2) % 3)}
+                onClick={() => setSliderIndex(i => (i + sliderTestimonials.length - 1) % sliderTestimonials.length)}
                 className="slider-arrows"
                 style={{ position: 'absolute', left: -52, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--lila)', fontSize: '2rem', cursor: 'pointer', lineHeight: 1, padding: '0.25rem 0.5rem', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'white'}
@@ -501,7 +504,7 @@ export default function Home() {
               </div>
               {/* Pfeil rechts */}
               <button
-                onClick={() => setSliderIndex(i => (i + 1) % 3)}
+                onClick={() => setSliderIndex(i => (i + 1) % sliderTestimonials.length)}
                 className="slider-arrows"
                 style={{ position: 'absolute', right: -52, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--lila)', fontSize: '2rem', cursor: 'pointer', lineHeight: 1, padding: '0.25rem 0.5rem', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'white'}
@@ -510,7 +513,7 @@ export default function Home() {
             </div>
             {/* Punkte */}
             <div style={{ display: 'flex', gap: '0.6rem', marginTop: '2.25rem' }}>
-              {[0, 1, 2].map(i => (
+              {sliderTestimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setSliderIndex(i)}
