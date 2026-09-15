@@ -282,8 +282,11 @@ export default function Selbststaendige() {
             <span style={{ display: 'block', fontSize: 'clamp(2rem, 3.5vw, 3.8rem)', fontStyle: 'normal' }}>Baufinanzierung für Selbstständige</span>
             <em style={{ display: 'block', fontSize: 'clamp(1.5rem, 2.6vw, 2.8rem)', color: 'var(--lila)' }}>in Berlin und Brandenburg</em>
           </h1>
-          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', marginBottom: '2rem', fontWeight: 500 }}>
+          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', marginBottom: '1.25rem', fontWeight: 500 }}>
             Selbstständig. Erfolgreich. Trotzdem kein Kredit? Das ändere ich.
+          </p>
+          <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300, maxWidth: 560, margin: '0 auto 2rem' }}>
+            Ich bin Franziska Ritsche, unabhängige Baufinanzierungsberaterin für Selbstständige in Berlin und Brandenburg – kostenlos, mit über 500 Bankpartnern.
           </p>
           <div className="ss-hero-mobile-img" style={{ position: 'relative' }}>
             <Image
