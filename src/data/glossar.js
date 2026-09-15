@@ -25,7 +25,7 @@ Meine Empfehlung: In Phasen niedriger Zinsen sollte die Tilgung möglichst hoch 
 
 Zusätzlich zur regulären Tilgung können Sondertilgungen vereinbart werden – außerplanmäßige Rückzahlungen, die die Laufzeit weiter verkürzen.`,
     relatedSlugs: ['annuitaetendarlehen', 'sondertilgung', 'restschuld', 'volltilgerdarlehen'],
-    relatedPages: [{ href: '/#rechner', label: 'Rate & Tilgung berechnen' }, { href: '/kontakt', label: 'Persönlich beraten lassen' }],
+    relatedPages: [{ href: '/#rechner', label: 'Rate & Tilgung berechnen' }, { href: '/warum-ich', label: 'Franziska Ritsche kennenlernen' }, { href: '/kontakt', label: 'Persönlich beraten lassen' }],
   },
   {
     slug: 'zinsbindung',
@@ -87,6 +87,7 @@ Für Selbstständige mit guter Bonität ist unter bestimmten Voraussetzungen auc
     relatedSlugs: ['beleihungsauslauf', 'kaufnebenkosten', 'grunderwerbsteuer'],
     relatedPages: [
       { href: '/selbststaendige', label: 'Baufinanzierung für Selbstständige' },
+      { href: '/warum-ich', label: 'Franziska Ritsche kennenlernen' },
       { href: '/kontakt', label: 'Situation prüfen lassen' },
     ],
   },
@@ -330,6 +331,7 @@ Tipp: Prüfen Sie Ihren SCHUFA-Score bevor Sie die Finanzierung beantragen – n
     relatedSlugs: ['schufa', 'bwa', 'euer'],
     relatedPages: [
       { href: '/selbststaendige', label: 'Baufinanzierung für Selbstständige' },
+      { href: '/warum-ich', label: 'Franziska Ritsche kennenlernen' },
       { href: '/kontakt', label: 'Unterlagen prüfen lassen' },
     ],
   },
@@ -349,7 +351,7 @@ Wichtige Tipps:
 
 Tipp: Nutzen Sie für Konditionsanfragen immer „Konditionsanfragen" statt „Kreditanfragen" – Konditionsanfragen sind SCHUFA-neutral.`,
     relatedSlugs: ['bonitaetspruefung', 'bwa', 'euer'],
-    relatedPages: [{ href: '/kontakt', label: 'Finanzierungschancen einschätzen' }],
+    relatedPages: [{ href: '/warum-ich', label: 'Franziska Ritsche kennenlernen' }, { href: '/kontakt', label: 'Finanzierungschancen einschätzen' }],
   },
   {
     slug: 'bereitstellungszinsen',

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
+import { track } from '@vercel/analytics'
 import { glossarTerms } from '../../../data/glossar'
 
 export default function GlossarTerm() {
@@ -212,14 +213,14 @@ export default function GlossarTerm() {
         <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, maxWidth: 420, margin: '0 auto 2.5rem', fontWeight: 300 }}>
           Ich erkläre Ihnen gerne, was {term.term} konkret für Ihre Finanzierung bedeutet – kostenlos und unverbindlich.
         </p>
-        <a href="/kontakt" style={{ background: 'var(--lila)', color: 'white', padding: '0.9rem 2rem', borderRadius: 2, fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', display: 'inline-block', transition: 'background 0.25s, transform 0.25s' }}
+        <a href="/kontakt" onClick={() => track('glossar_cta_click', { type: 'bottom', page: term.slug })} style={{ background: 'var(--lila)', color: 'white', padding: '0.9rem 2rem', borderRadius: 2, fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', display: 'inline-block', transition: 'background 0.25s, transform 0.25s' }}
           onMouseEnter={e => { e.currentTarget.style.background = 'var(--lila-dark)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
           onMouseLeave={e => { e.currentTarget.style.background = 'var(--lila)'; e.currentTarget.style.transform = 'translateY(0)' }}
         >Kostenloses Erstgespräch</a>
       </section>
 
       {/* FLOATING CONTACT BUTTON */}
-      <a href="/kontakt" className="float-btn" style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 200, background: 'var(--lila)', color: 'white', padding: '0.85rem 1.4rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 500, textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '0.6rem', transition: 'transform 0.25s, box-shadow 0.25s', maxWidth: '280px', lineHeight: 1.3 }}>
+      <a href="/kontakt" onClick={() => track('glossar_cta_click', { type: 'floating', page: term.slug })} className="float-btn" style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 200, background: 'var(--lila)', color: 'white', padding: '0.85rem 1.4rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 500, textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '0.6rem', transition: 'transform 0.25s, box-shadow 0.25s', maxWidth: '280px', lineHeight: 1.3 }}>
         <svg style={{ flexShrink: 0 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         <span style={{ display: 'flex', flexDirection: 'column' }}><span>Sie haben noch Fragen?</span><span>Kontaktieren Sie mich gerne.</span></span>
       </a>
