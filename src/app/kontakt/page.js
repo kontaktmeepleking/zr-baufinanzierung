@@ -232,8 +232,8 @@ export default function Kontakt() {
 
                   {/* Thema */}
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'var(--anthrazit)', marginBottom: '0.4rem' }}>Worum geht es? <span style={{ color: 'var(--text-light)', fontWeight: 300 }}>optional</span></label>
-                    <select name="thema" className="kontakt-input" style={{ ...inputStyle, appearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', cursor: 'pointer' }}>
+                    <label htmlFor="thema" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'var(--anthrazit)', marginBottom: '0.4rem' }}>Worum geht es? <span style={{ color: 'var(--text-light)', fontWeight: 300 }}>optional</span></label>
+                    <select id="thema" name="thema" className="kontakt-input" style={{ ...inputStyle, appearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', cursor: 'pointer' }}>
                       <option value="">Bitte wählen …</option>
                       <option value="Erstfinanzierung">Erstfinanzierung</option>
                       <option value="Anschlussfinanzierung">Anschlussfinanzierung</option>
@@ -254,7 +254,7 @@ export default function Kontakt() {
                   <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                     <input type="checkbox" name="datenschutz" required id="datenschutz" style={{ marginTop: 3, accentColor: 'var(--lila)', flexShrink: 0, width: 16, height: 16, cursor: 'pointer' }} />
                     <label htmlFor="datenschutz" style={{ fontSize: '0.82rem', color: 'var(--text-light)', lineHeight: 1.6, fontWeight: 300, cursor: 'pointer' }}>
-                      Ich habe die <a href="/datenschutz" style={{ color: 'var(--lila-dark)', textDecoration: 'none' }}>Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.
+                      Ich habe die <a href="/datenschutz" style={{ color: 'var(--lila-dark)', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)', paddingBottom: '1px' }}>Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.
                     </label>
                   </div>
 

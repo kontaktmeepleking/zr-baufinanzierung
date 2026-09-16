@@ -127,6 +127,7 @@ export default function GlossarTerm() {
         </div>
       )}
 
+      <main>
       {/* BREADCRUMB + HERO */}
       <section style={{
         background: 'linear-gradient(148deg, #27292e 0%, #2F3338 45%, #2c2538 100%)',
@@ -218,6 +219,7 @@ export default function GlossarTerm() {
           onMouseLeave={e => { e.currentTarget.style.background = 'var(--lila)'; e.currentTarget.style.transform = 'translateY(0)' }}
         >Kostenloses Erstgespräch</a>
       </section>
+      </main>
 
       {/* FLOATING CONTACT BUTTON */}
       <a href="/kontakt" onClick={() => track('glossar_cta_click', { type: 'floating', page: term.slug })} className="float-btn" style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 200, background: 'var(--lila)', color: 'white', padding: '0.85rem 1.4rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 500, textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '0.6rem', transition: 'transform 0.25s, box-shadow 0.25s', maxWidth: '280px', lineHeight: 1.3 }}>

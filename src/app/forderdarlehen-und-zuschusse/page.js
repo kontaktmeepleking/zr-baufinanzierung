@@ -195,6 +195,7 @@ export default function Foerderdarlehen() {
         </div>
       )}
 
+      <main>
       {/* HERO */}
       <section className="fd-hero-section" style={{
         minHeight: '70vh',
@@ -490,6 +491,7 @@ export default function Foerderdarlehen() {
           </p>
         </div>
       </section>
+      </main>
 
       {/* FLOATING CONTACT BUTTON */}
       <a href="/kontakt" className="fd-float-btn" style={{

@@ -255,6 +255,7 @@ export default function Selbststaendige() {
         </div>
       )}
 
+      <main>
       {/* ── HERO ── */}
       <section className="ss-hero" style={{
         minHeight: '100vh', background: 'linear-gradient(148deg, #27292e 0%, #2F3338 45%, #2c2538 100%)',
@@ -267,7 +268,7 @@ export default function Selbststaendige() {
           <Image
             src="/images/franziska-ritsche-baufinanzierungsberaterin-berlin.png"
             alt="Franziska Ritsche – Baufinanzierungsberaterin für Selbstständige in Berlin Brandenburg"
-            width={400} height={480} priority
+            width={828} height={899} priority
             style={{ height: '58vh', width: 'auto', display: 'block' }}
           />
         </div>
@@ -292,7 +293,7 @@ export default function Selbststaendige() {
             <Image
               src="/images/franziska-ritsche-baufinanzierungsberaterin-berlin.png"
               alt="Franziska Ritsche – Baufinanzierungsberaterin für Selbstständige"
-              width={400} height={480}
+              width={828} height={899}
               style={{ height: '45vh', width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'bottom' }}
             />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, transparent, var(--anthrazit))', pointerEvents: 'none' }} />
@@ -609,6 +610,7 @@ export default function Selbststaendige() {
           <a href="tel:+4917684405479" className="btn-dark">Direkt anrufen</a>
         </div>
       </section>
+      </main>
 
       {/* FLOATING CONTACT BUTTON */}
       <a href="/kontakt" className="float-btn" style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 200, background: 'var(--lila)', color: 'white', padding: '0.85rem 1.4rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: 500, textDecoration: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '0.6rem', transition: 'transform 0.25s, box-shadow 0.25s', maxWidth: '280px', lineHeight: 1.3 }}>
