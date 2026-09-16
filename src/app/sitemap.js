@@ -30,6 +30,12 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/baufinanzierung-strausberg`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/warum-ich`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

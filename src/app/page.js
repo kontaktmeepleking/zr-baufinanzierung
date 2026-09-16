@@ -383,7 +383,8 @@ export default function Home() {
         </div>
         <div className="fade-in" style={{ textAlign: 'center', marginTop: '2.5rem' }}>
           <p style={{ fontSize: '0.78rem', color: 'var(--text-light)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>Persönlich vor Ort</p>
-          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: 600, color: 'var(--anthrazit)', lineHeight: 1 }}>Berlin & Brandenburg</p>
+          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: 600, color: 'var(--anthrazit)', lineHeight: 1, marginBottom: '0.75rem' }}>Berlin & Brandenburg</p>
+          <a href="/baufinanzierung-strausberg" style={{ fontSize: '0.9rem', color: 'var(--lila-dark)', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)', paddingBottom: '1px' }}>Auch zu Hause in Strausberg →</a>
         </div>
       </section>
 
@@ -512,13 +513,16 @@ export default function Home() {
               >›</button>
             </div>
             {/* Punkte */}
-            <div style={{ display: 'flex', gap: '0.6rem', marginTop: '2.25rem' }}>
+            <div style={{ display: 'flex', marginTop: '2.25rem' }}>
               {sliderTestimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setSliderIndex(i)}
-                  style={{ width: 8, height: 8, borderRadius: '50%', border: 'none', cursor: 'pointer', padding: 0, background: sliderIndex === i ? 'var(--lila)' : 'rgba(187,159,213,0.3)', transition: 'background 0.3s' }}
-                />
+                  aria-label={`Bewertung ${i + 1} anzeigen`}
+                  style={{ width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'none', cursor: 'pointer', padding: 0 }}
+                >
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: sliderIndex === i ? 'var(--lila)' : 'rgba(187,159,213,0.3)', transition: 'background 0.3s' }} />
+                </button>
               ))}
             </div>
           </div>
