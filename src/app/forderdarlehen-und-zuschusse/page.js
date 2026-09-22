@@ -117,6 +117,8 @@ export default function Foerderdarlehen() {
         .fd-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(255,255,255,0.08); margin-top: 4rem; max-width: 900px; margin: 4rem auto 0; }
         .fd-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
         @media (max-width: 768px) {
+          .fd-float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
+          .fd-float-btn span { display: none !important; }
           .fd-nav-links { display: none !important; }
           .fd-hamburger { display: flex !important; }
           .fd-mobile-menu { display: flex; flex-direction: column; position: fixed; top: 88px; left: 0; right: 0; background: var(--anthrazit); padding: 1.5rem 5%; gap: 0; z-index: 99; border-top: 1px solid rgba(255,255,255,0.08); }

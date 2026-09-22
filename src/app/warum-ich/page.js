@@ -48,6 +48,8 @@ export default function WarumIch() {
         .wi-section-divider { border-top: 1px solid rgba(187,159,213,0.5); padding-top: 5rem; }
         .wi-hausbau-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem; }
         @media (max-width: 768px) {
+          .float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
+          .float-btn span { display: none !important; }
           .wi-hero-section { grid-template-columns: 1fr !important; }
           .wi-nav-links { display: none !important; }
           .wi-hamburger { display: flex !important; }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import GoogleRatingBadge from '../components/GoogleRatingBadge'
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -116,6 +117,7 @@ export default function BaufinanzierungStrausberg() {
         .st-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
         .st-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 2rem; min-height: calc(100vh - 88px); }
         .st-hero-img-frame { width: 100%; max-width: 620px; height: 460px; position: relative; overflow: hidden; border: 1px solid rgba(187,159,213,0.35); box-shadow: 10px 10px 0px rgba(187,159,213,0.25); }
+        .st-hero-mobile-img { display: none; }
         .st-heim-grid { display: grid; grid-template-columns: 1fr 0.85fr; align-items: center; gap: 3rem; }
         .st-heim-img-frame { width: 100%; height: 420px; position: relative; overflow: hidden; border: 1px solid rgba(187,159,213,0.3); box-shadow: 10px 10px 0px var(--lila-light); }
         .st-pers-grid { display: grid; grid-template-columns: 1fr 0.8fr; align-items: center; gap: 2.5rem; text-align: left; }
@@ -129,6 +131,8 @@ export default function BaufinanzierungStrausberg() {
         .faq-body { overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
         .st-section-pad { padding: 5rem 8%; }
         @media (max-width: 768px) {
+          .float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
+          .float-btn span { display: none !important; }
           .st-nav-links { display: none !important; }
           .st-hamburger { display: flex !important; }
           .st-mobile-menu { display: flex; flex-direction: column; position: fixed; top: 88px; left: 0; right: 0; background: var(--anthrazit); padding: 1.5rem 5%; gap: 0; z-index: 99; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -136,9 +140,11 @@ export default function BaufinanzierungStrausberg() {
           .st-mobile-menu .mob-cta { background: var(--lila); color: white !important; padding: 0.75rem 1.25rem !important; border-radius: 2px; border-bottom: none !important; margin-top: 1rem; text-align: center; font-weight: 500; }
           .st-footer { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 1rem !important; padding: 2.5rem 6% !important; }
           .st-footer ul { flex-wrap: wrap !important; justify-content: center !important; gap: 1rem 1.5rem !important; padding: 0 !important; }
-          .st-hero { padding-top: 7rem !important; padding-bottom: 3rem !important; }
+          .st-hero { padding-top: 6rem !important; padding-bottom: 3rem !important; }
           .st-hero-grid { grid-template-columns: 1fr !important; min-height: auto !important; gap: 2.5rem !important; }
-          .st-hero-img-wrap { order: -1; }
+          .st-hero-content { display: flex !important; flex-direction: column !important; padding: 1.25rem 6% 3rem !important; }
+          .st-hero-img-wrap { display: none !important; }
+          .st-hero-mobile-img { display: flex; justify-content: center; margin-bottom: 1.5rem; }
           .st-hero-img-frame { height: 240px !important; max-width: 100% !important; }
           .st-heim-grid { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center !important; }
           .st-heim-img-wrap { order: -1; }
@@ -221,44 +227,57 @@ export default function BaufinanzierungStrausberg() {
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 75% 68% at 32% 42%, rgba(187,159,213,0.12) 0%, rgba(187,159,213,0.04) 52%, transparent 74%)', pointerEvents: 'none', zIndex: 1 }} />
 
-        <div className="fade-in" style={{ textAlign: 'center', position: 'relative', zIndex: 3, padding: '4rem 4% 4rem 8%' }}>
-          <p style={{ fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
+        <div className="fade-in st-hero-content" style={{ textAlign: 'center', position: 'relative', zIndex: 3, padding: '4rem 4% 4rem 8%' }}>
+          <p style={{ order: 1, fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
             <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
             Baufinanzierung in Strausberg
             <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
           </p>
-          <h1 style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 600, color: 'white', lineHeight: 1.05, marginBottom: '1rem', textAlign: 'center' }}>
+          <h1 style={{ order: 2, fontFamily: 'var(--font-cormorant)', fontWeight: 600, color: 'white', lineHeight: 1.05, marginBottom: '1rem', textAlign: 'center' }}>
             <span style={{ display: 'block', fontSize: 'clamp(2rem, 3.8vw, 4rem)', fontStyle: 'normal' }}>Unabhängige Baufinanzierung</span>
             <em style={{ display: 'block', fontSize: 'clamp(1.4rem, 2.8vw, 2.9rem)', color: 'var(--lila)' }}>in Strausberg &amp; Märkisch-Oderland</em>
           </h1>
-          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.3rem, 2.3vw, 1.8rem)', fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', marginBottom: '1.5rem', fontWeight: 500 }}>
-            Aus der Region, für die Region – mit einer Sorge weniger.
+          <p style={{ order: 3, fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.3rem, 2.3vw, 1.8rem)', fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', marginBottom: '1.5rem', fontWeight: 500 }}>
+            Aus der Region, für die Region – und für Sie: Eine Sorge weniger.
           </p>
 
-          <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300, maxWidth: 540, margin: '0 auto 2.5rem' }}>
+          <div className="st-hero-mobile-img" style={{ order: 4 }}>
+            <div className="st-hero-img-frame">
+              <Image
+                src="/images/strausberg-faehre-straussee.jpg"
+                alt="Strausberger Fähre am Straussee in Strausberg – einer der bekanntesten Orte der Stadt"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+          </div>
+
+          <p style={{ order: 5, fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300, maxWidth: 540, margin: '0 auto 2.5rem' }}>
             Ich bin Franziska Ritsche, unabhängige Baufinanzierungsberaterin mit persönlichem Bezug zu Strausberg – ich habe selbst zehn Jahre hier gelebt. Bei Ihrer Baufinanzierung in Strausberg vergleiche ich für Sie über 500 Banken: persönlich aus der Nachbarschaft, ohne Callcenter.
           </p>
 
-          <div className="st-hero-btns" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div className="st-hero-btns" style={{ order: 6, display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href="/kontakt" className="btn-primary">Jetzt Erstgespräch für Strausberg vereinbaren</a>
             <a href="#spezialisierung" className="btn-ghost">Meine Spezialisierung</a>
           </div>
-          <a href="tel:+4917684405479" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', justifyContent: 'center' }}>
+          <div style={{ order: 7, display: 'flex', gap: '2.5rem', marginTop: '2.5rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>500+</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Bankpartner</div>
+            </div>
+            <GoogleRatingBadge reviewCount={10} />
+            <div>
+              <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>100%</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Kostenlos für Sie</div>
+            </div>
+          </div>
+          <a href="tel:+4917684405479" style={{ order: 8, display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', justifyContent: 'center' }}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--lila)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.31a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 18z"/>
             </svg>
             <span style={{ fontWeight: 500 }}>0176 84 40 54 79</span>
             <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem' }}>· Auch abends &amp; am Wochenende erreichbar</span>
           </a>
-
-          <div style={{ display: 'flex', gap: '2.5rem', marginTop: '2.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            {[['500+', 'Bankpartner'], ['100%', 'Kostenlos für Sie'], ['5★', 'Google Bewertung']].map(([num, label]) => (
-              <div key={label}>
-                <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>{num}</div>
-                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>{label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="fade-in st-hero-img-wrap" style={{ position: 'relative', zIndex: 3, padding: '2rem 8% 2rem 2rem', display: 'flex', justifyContent: 'center' }}>
@@ -348,9 +367,8 @@ export default function BaufinanzierungStrausberg() {
           ))}
         </div>
 
-        <div className="fade-in" style={{ textAlign: 'center', margin: '3.5rem 0 2rem' }}>
-          <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>5★</div>
-          <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Google Bewertung</div>
+        <div className="fade-in" style={{ display: 'flex', justifyContent: 'center', margin: '3.5rem 0 2rem' }}>
+          <GoogleRatingBadge reviewCount={10} />
         </div>
 
         <div className="fade-in st-praxis-grid">

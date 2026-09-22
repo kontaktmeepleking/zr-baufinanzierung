@@ -21,6 +21,8 @@ export default function Impressum() {
         .imp-mobile-menu.open { display: flex; }
         .imp-mobile-menu a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 1rem; }
         @media (max-width: 768px) {
+          .float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
+          .float-btn span { display: none !important; }
           .imp-nav-links { display: none !important; }
           .imp-hamburger { display: flex !important; }
           .imp-hero { padding: 6rem 5% 3rem !important; }

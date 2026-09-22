@@ -64,6 +64,8 @@ export default function GlossarTerm() {
         .float-btn { animation: float-pulse 1.2s ease-in-out 5s 1; }
         .float-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(187,159,213,0.5); }
         @media (max-width: 768px) {
+          .float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
+          .float-btn span { display: none !important; }
           .gl-nav-links { display: none !important; }
           .gl-hamburger { display: flex !important; }
           .gl-mobile-menu { display: flex; flex-direction: column; position: fixed; top: 88px; left: 0; right: 0; background: var(--anthrazit); padding: 1.5rem 5%; gap: 0; z-index: 99; border-top: 1px solid rgba(255,255,255,0.08); }

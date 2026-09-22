@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Script from 'next/script'
+import GoogleRatingBadge from './components/GoogleRatingBadge'
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('')
@@ -87,7 +88,10 @@ export default function Home() {
         .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
         .nav-hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
         .nav-mobile-menu { display: none; }
+        .hero-badge-wrap { display: none !important; }
         @media (max-width: 768px) {
+          .hero-badge-wrap { display: flex !important; }
+          .hero-badge-desktop { display: none !important; }
           .nav-links { display: none !important; }
           .nav-hamburger { display: flex !important; }
           .nav-mobile-menu { display: flex; flex-direction: column; position: fixed; top: 88px; left: 0; right: 0; background: var(--anthrazit); padding: 1.5rem 5%; gap: 0; z-index: 99; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -97,18 +101,19 @@ export default function Home() {
           .hero-top    { order: 1; grid-column: 1 !important; grid-row: auto !important; text-align: center; padding: 2rem 2rem 1rem !important; }
           .hero-top .hero-label { justify-content: center !important; }
           .hero-top h1 { text-align: center; }
+          .hero-dash { display: none !important; }
           .hero-img-wrap { order: 2; grid-column: 1 !important; grid-row: auto !important; max-height: 320px; overflow: hidden; display: flex !important; justify-content: center; align-self: auto !important; position: relative !important; }
           .hero-img-fade { display: block !important; }
           .hero-img-wrap img { height: 320px !important; width: auto !important; max-width: 280px !important; object-position: top !important; }
-          .hero-bottom { order: 3; grid-column: 1 !important; grid-row: auto !important; text-align: center; padding: 1.5rem 2rem 1rem !important; }
-          .hero-bottom p { max-width: 100% !important; margin-top: 0 !important; text-align: center; }
+          .hero-bottom { order: 3; grid-column: 1 !important; grid-row: auto !important; text-align: center; padding: 1.5rem 2rem 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 1.5rem !important; }
+          .hero-bottom p { max-width: 100% !important; margin-top: 0 !important; margin-bottom: 0 !important; text-align: center; }
           .hero-buttons { flex-direction: column !important; align-items: center; }
           .hero-buttons a { width: 100% !important; text-align: center; box-sizing: border-box; }
-          .hero-stats { order: 4; grid-column: 1 !important; grid-row: auto !important; padding: 1rem 2rem 3rem !important; justify-content: center !important; text-align: center; gap: 1.5rem !important; flex-wrap: wrap !important; }
+          .hero-badge-wrap { margin-top: 0 !important; }
+          .hero-stats { order: 4; grid-column: 1 !important; grid-row: auto !important; padding: 1.5rem 2rem 3rem !important; justify-content: center !important; text-align: center; gap: 1.5rem !important; flex-wrap: wrap !important; }
           .hero-bottom p { overflow-wrap: break-word; word-break: break-word; }
           #hero { overflow-x: hidden; }
           .hero-phone { justify-content: center !important; flex-wrap: wrap !important; gap: 0.3rem 0.5rem !important; }
-          .hero-phone-sub { display: none !important; }
           .grid-2col { grid-template-columns: 1fr !important; gap: 2rem !important; }
           .unterschied-text  { order: 1; grid-column: auto !important; grid-row: auto !important; }
           .unterschied-img   { order: 2; grid-column: auto !important; grid-row: auto !important; height: 280px !important; }
@@ -122,6 +127,8 @@ export default function Home() {
           .section-pad { padding: 4rem 5% !important; }
           #rechner { padding: 4rem 5% !important; }
           #rechner .rechner-hint a.btn-primary { display: block; width: 100%; box-sizing: border-box; }
+          .float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
+          .float-btn span { display: none !important; }
 
           .trust-bar { grid-template-columns: repeat(2, 1fr) !important; padding: 0 !important; gap: 1.5px !important; background: var(--lila-light) !important; border-top: 1px solid var(--lila-light); border-bottom: 1px solid var(--lila-light); }
           .trust-bar > div { border-right: none !important; background: var(--hell); padding: 1.5rem 1rem !important; }
@@ -193,7 +200,7 @@ export default function Home() {
           </p>
           <h1 className="fade-in fade-in-d2" style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 600, lineHeight: 1.1, marginBottom: 0 }}>
             <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2.2rem, 4vw, 4.5rem)' }}>Ihre Expertin für Baufinanzierung</span>
-            <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2.2rem, 4vw, 4.5rem)' }}>– in Berlin &amp; Brandenburg –</span>
+            <span style={{ color: 'white', fontStyle: 'normal', display: 'block', fontSize: 'clamp(2.2rem, 4vw, 4.5rem)' }}><span className="hero-dash">– </span>in Berlin &amp; Brandenburg<span className="hero-dash"> –</span></span>
             <em style={{ color: 'var(--lila)', fontStyle: 'italic', display: 'block', fontSize: 'clamp(1.8rem, 6vw, 5rem)', marginTop: '0.5rem' }}>Eine Sorge weniger.</em>
           </h1>
         </div>
@@ -222,23 +229,33 @@ export default function Home() {
             <a href="/kontakt" className="btn-primary">Kostenloses Erstgespräch</a>
             <a href="#rechner" className="btn-ghost">Finanzierung berechnen</a>
           </div>
-          <a href="tel:+4917684405479" className="hero-phone" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '1.25rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
+          <div className="hero-badge-wrap" style={{ display: 'flex', justifyContent: 'center', marginTop: '1.25rem' }}>
+            <GoogleRatingBadge reviewCount={10} />
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="hero-stats fade-in fade-in-d4" style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', padding: '3rem 5% 5rem 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 3, alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '2.5rem', justifyContent: 'center', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>500+</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Bankpartner</div>
+            </div>
+            <div className="hero-badge-desktop">
+              <GoogleRatingBadge reviewCount={10} />
+            </div>
+            <div>
+              <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>100%</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Kostenlos für Sie</div>
+            </div>
+          </div>
+          <a href="tel:+4917684405479" className="hero-phone" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--lila)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.31a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 18z"/>
             </svg>
             <span style={{ fontWeight: 500 }}>0176 84 40 54 79</span>
             <span className="hero-phone-sub" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem' }}>· Auch abends & am Wochenende erreichbar</span>
           </a>
-        </div>
-
-        {/* Stats */}
-        <div className="hero-stats fade-in fade-in-d4" style={{ display: 'flex', gap: '2.5rem', padding: '3rem 5% 5rem 8%', position: 'relative', zIndex: 4, gridColumn: 1, gridRow: 3, justifyContent: 'center' }}>
-          {[['500+','Bankpartner'],['100%','Kostenlos für Sie'],['5★','Google Bewertung']].map(([num, label]) => (
-            <div key={label}>
-              <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>{num}</div>
-              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>{label}</div>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -390,10 +407,14 @@ export default function Home() {
 
       {/* TRUST BAR */}
       <div className="trust-bar" style={{ background: 'var(--hell)', padding: '2rem 8%', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderTop: '1px solid var(--lila-light)', borderBottom: '1px solid var(--lila-light)' }}>
-        {[['500+','Bankpartner im Vergleich'],['100%','Kostenlos & unverbindlich'],['5★','Google Bewertungen'],['∞','Erreichbarkeit für Sie']].map(([num, label], i) => (
-          <div key={label} className="fade-in" style={{ textAlign: 'center', borderRight: i < 3 ? '1px solid var(--lila-light)' : 'none', padding: '0.5rem 1rem', minWidth: 0 }}>
-            <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.8rem', fontWeight: 600, color: 'var(--anthrazit)', lineHeight: 1 }}>{num}</div>
-            <div style={{ fontSize: '0.78rem', color: 'var(--text-light)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '0.3rem' }}>{label}</div>
+        {[['500+','Bankpartner im Vergleich'],['100%','Kostenlos & unverbindlich'],['google','Google Bewertungen'],['∞','Erreichbarkeit für Sie']].map(([num, label], i) => (
+          <div key={label} className="fade-in" style={{ textAlign: 'center', borderRight: i < 3 ? '1px solid var(--lila-light)' : 'none', padding: '0.5rem 1rem', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            {num === 'google' ? <GoogleRatingBadge reviewCount={10} variant="light" /> : (
+              <>
+                <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.8rem', fontWeight: 600, color: 'var(--anthrazit)', lineHeight: 1 }}>{num}</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--text-light)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '0.3rem' }}>{label}</div>
+              </>
+            )}
           </div>
         ))}
       </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import GoogleRatingBadge from '../components/GoogleRatingBadge'
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -167,8 +168,12 @@ export default function Selbststaendige() {
         .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--lila); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
         .faq-body { overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
         .ss-hero-mobile-img { display: none; }
+        .ss-badge-mobile { display: none !important; }
+        .ss-hero-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: 0; min-height: calc(100vh - 60px); }
         .ss-infobox { background: rgba(187,159,213,0.1); border: 1px solid rgba(187,159,213,0.3); border-radius: 2px; padding: 1.25rem 1.5rem; }
         @media (max-width: 768px) {
+          .float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
+          .float-btn span { display: none !important; }
           .ss-nav-links { display: none !important; }
           .ss-hamburger { display: flex !important; }
           .ss-mobile-menu { display: flex; flex-direction: column; position: fixed; top: 88px; left: 0; right: 0; background: var(--anthrazit); padding: 1.5rem 5%; gap: 0; z-index: 99; border-top: 1px solid rgba(255,255,255,0.08); }
@@ -182,14 +187,17 @@ export default function Selbststaendige() {
           .ss-ablauf::before { display: none; }
           .ss-berufe-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .ss-eigenkapital-grid { grid-template-columns: 1fr !important; background: none !important; }
-          .ss-hero-section { grid-template-columns: 1fr !important; }
           .ss-hero { padding-top: 7rem !important; padding-bottom: 3rem !important; }
+          .ss-hero-grid { grid-template-columns: 1fr !important; min-height: auto !important; gap: 1.5rem !important; }
           .ss-hero-franzi { display: none !important; }
-          .ss-hero-mobile-img { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-          .ss-hero-text { padding: 2rem 2rem 1rem !important; text-align: center; }
-          .ss-hero-text p { justify-content: center !important; }
-          .ss-hero-img { max-height: 300px; }
-          .ss-hero-img img { height: 300px !important; width: auto !important; }
+          .ss-hero-content { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 1.5rem !important; }
+          .ss-hero-content > * { margin-top: 0 !important; margin-bottom: 0 !important; }
+          .ss-hero-mobile-img { display: flex; justify-content: center; }
+          .ss-badge-mobile { display: flex !important; justify-content: center; }
+          .ss-badge-desktop { display: none !important; }
+          .ss-hero-stats { flex-wrap: nowrap !important; }
+          .ss-hero-phone { flex-wrap: wrap !important; gap: 0.3rem 0.5rem !important; }
+          .ss-hero-content { padding: 1.25rem 6% 3rem !important; }
           .ss-hero-btns { flex-direction: column !important; align-items: stretch !important; }
           .ss-hero-btns a { text-align: center; box-sizing: border-box; }
           .ss-section-pad { padding: 4rem 5% !important; }
@@ -257,39 +265,27 @@ export default function Selbststaendige() {
 
       <main>
       {/* ── HERO ── */}
-      <section className="ss-hero" style={{
+      <section className="ss-hero ss-hero-grid" style={{
         minHeight: '100vh', background: 'linear-gradient(148deg, #27292e 0%, #2F3338 45%, #2c2538 100%)',
-        paddingTop: 88, position: 'relative', overflow: 'hidden',
-        display: 'flex', alignItems: 'center', justifyContent: 'center'
+        paddingTop: 60, position: 'relative', overflow: 'hidden'
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(187,159,213,0.1) 0%, rgba(187,159,213,0.03) 55%, transparent 75%)', pointerEvents: 'none', zIndex: 1 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 68% 45%, rgba(187,159,213,0.1) 0%, rgba(187,159,213,0.03) 55%, transparent 75%)', pointerEvents: 'none', zIndex: 1 }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '28%', background: 'linear-gradient(to top, rgba(25,20,38,0.4) 0%, transparent 100%)', pointerEvents: 'none', zIndex: 1 }} />
-        <div className="ss-hero-franzi" style={{ position: 'absolute', bottom: 0, left: '7%', zIndex: 2, pointerEvents: 'none' }}>
-          <Image
-            src="/images/franziska-ritsche-baufinanzierungsberaterin-berlin.png"
-            alt="Franziska Ritsche – Baufinanzierungsberaterin für Selbstständige in Berlin Brandenburg"
-            width={828} height={899} priority
-            style={{ height: '58vh', width: 'auto', display: 'block' }}
-          />
-        </div>
 
-        <div className="fade-in" style={{ textAlign: 'center', position: 'relative', zIndex: 3, maxWidth: 820, padding: '0 8%' }}>
-          <p style={{ fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
-            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
+        <div className="fade-in ss-hero-content" style={{ order: 2, textAlign: 'center', position: 'relative', zIndex: 3, padding: '4rem 8% 4rem 0' }}>
+          <p style={{ order: 1, fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
+            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'rgba(255,255,255,0.25)' }}></span>
             Für Selbstständige &amp; Unternehmer
-            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
+            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'rgba(255,255,255,0.25)' }}></span>
           </p>
-          <h1 style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 600, color: 'white', lineHeight: 1.05, marginBottom: '1rem', textAlign: 'center' }}>
-            <span style={{ display: 'block', fontSize: 'clamp(2rem, 3.5vw, 3.8rem)', fontStyle: 'normal' }}>Baufinanzierung für Selbstständige</span>
-            <em style={{ display: 'block', fontSize: 'clamp(1.5rem, 2.6vw, 2.8rem)', color: 'var(--lila)' }}>in Berlin und Brandenburg</em>
+          <h1 style={{ order: 2, fontFamily: 'var(--font-cormorant)', fontWeight: 600, color: 'white', lineHeight: 1.05, marginBottom: '1rem', textAlign: 'center' }}>
+            <span style={{ display: 'block', fontSize: 'clamp(1.1rem, 1.8vw, 1.9rem)', fontStyle: 'normal' }}>Baufinanzierung für Selbstständige</span>
+            <span style={{ display: 'block', fontSize: 'clamp(0.9rem, 1.5vw, 1.5rem)', fontStyle: 'normal', marginTop: '0.2rem' }}>in Berlin und Brandenburg</span>
           </h1>
-          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', marginBottom: '1.25rem', fontWeight: 500 }}>
-            Selbstständig. Erfolgreich. Trotzdem kein Kredit? Das ändere ich.
+          <p style={{ order: 3, fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(2rem, 3.5vw, 3.8rem)', fontStyle: 'italic', color: 'var(--lila)', marginBottom: '1.25rem', fontWeight: 600 }}>
+            Selbstständig. Erfolgreich. Trotzdem kein Kredit? Das{' '}ändere{' '}ich.
           </p>
-          <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300, maxWidth: 560, margin: '0 auto 2rem' }}>
-            Ich bin Franziska Ritsche, unabhängige Baufinanzierungsberaterin für Selbstständige in Berlin und Brandenburg – kostenlos, mit über 500 Bankpartnern.
-          </p>
-          <div className="ss-hero-mobile-img" style={{ position: 'relative' }}>
+          <div className="ss-hero-mobile-img" style={{ order: 4, position: 'relative' }}>
             <Image
               src="/images/franziska-ritsche-baufinanzierungsberaterin-berlin.png"
               alt="Franziska Ritsche – Baufinanzierungsberaterin für Selbstständige"
@@ -298,17 +294,45 @@ export default function Selbststaendige() {
             />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, transparent, var(--anthrazit))', pointerEvents: 'none' }} />
           </div>
-          <div className="ss-hero-btns" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '4rem' }}>
+          <p style={{ order: 5, fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300, maxWidth: 560, margin: '0 auto 2rem' }}>
+            Ich bin Franziska Ritsche, unabhängige Baufinanzierungsberaterin für Selbstständige in Berlin und Brandenburg – kostenlos, mit über 500 Bankpartnern.
+          </p>
+          <div className="ss-hero-btns" style={{ order: 6, display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '2rem' }}>
             <a href="/kontakt" className="btn-primary">Kostenloses Erstgespräch</a>
             <a href="#loesung" className="btn-ghost">Wie ich helfen kann</a>
           </div>
-          <a href="tel:+4917684405479" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', justifyContent: 'center' }}>
+          <div className="ss-badge-mobile" style={{ order: 7 }}>
+            <GoogleRatingBadge reviewCount={10} />
+          </div>
+          <div className="ss-hero-stats" style={{ order: 8, display: 'flex', gap: '2.5rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', marginTop: '2.5rem' }}>
+            <div>
+              <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>500+</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Bankpartner</div>
+            </div>
+            <div className="ss-badge-desktop">
+              <GoogleRatingBadge reviewCount={10} />
+            </div>
+            <div>
+              <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>100%</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Kostenlos für Sie</div>
+            </div>
+          </div>
+          <a href="tel:+4917684405479" className="ss-hero-phone" style={{ order: 9, display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', justifyContent: 'center' }}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--lila)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.31a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 18z"/>
             </svg>
             <span style={{ fontWeight: 500 }}>0176 84 40 54 79</span>
             <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.82rem' }}>· Auch abends &amp; am Wochenende erreichbar</span>
           </a>
+        </div>
+
+        <div className="fade-in ss-hero-franzi" style={{ order: 1, position: 'relative', zIndex: 3, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', alignSelf: 'stretch', padding: '0 0.5rem 0 8%' }}>
+          <Image
+            src="/images/franziska-ritsche-baufinanzierungsberaterin-berlin.png"
+            alt="Franziska Ritsche – Baufinanzierungsberaterin für Selbstständige in Berlin Brandenburg"
+            width={828} height={899} priority
+            style={{ height: '68vh', maxHeight: 660, width: 'auto', maxWidth: '100%', objectFit: 'contain', objectPosition: 'bottom' }}
+          />
         </div>
       </section>
 
