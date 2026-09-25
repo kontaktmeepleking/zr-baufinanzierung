@@ -169,6 +169,7 @@ export default function Selbststaendige() {
         .faq-body { overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
         .ss-hero-mobile-img { display: none; }
         .ss-badge-mobile { display: none !important; }
+        .ss-text-mobile { display: none; }
         .ss-hero-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: center; gap: 0; min-height: calc(100vh - 60px); }
         .ss-infobox { background: rgba(187,159,213,0.1); border: 1px solid rgba(187,159,213,0.3); border-radius: 2px; padding: 1.25rem 1.5rem; }
         @media (max-width: 768px) {
@@ -182,10 +183,20 @@ export default function Selbststaendige() {
           .ss-footer { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 1rem !important; padding: 2.5rem 6% !important; }
           .ss-footer ul { flex-wrap: wrap !important; justify-content: center !important; gap: 1rem 1.5rem !important; padding: 0 !important; }
           .ss-problem-grid { grid-template-columns: 1fr !important; }
-          .ss-loesung-grid { grid-template-columns: 1fr !important; background: none !important; }
-          .ss-ablauf { grid-template-columns: 1fr !important; }
+          .ss-loesung-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .ss-loesung-grid > div { padding: 1.5rem 1.25rem !important; min-width: 0; overflow-wrap: break-word; }
+          .ss-loesung-grid > div > div:first-child { font-size: 2.6rem !important; margin-bottom: 0.5rem !important; }
+          .ss-ablauf { grid-template-columns: repeat(2, 1fr) !important; row-gap: 2rem !important; }
           .ss-ablauf::before { display: none; }
+          .ss-ablauf > div { min-width: 0; overflow-wrap: break-word; }
+          .ss-foerder-grid { grid-template-columns: repeat(2, 1fr) !important; text-align: center !important; }
+          .ss-foerder-grid > div { padding: 1.5rem 1.25rem !important; min-width: 0; overflow-wrap: break-word; }
+          .ss-foerder-grid > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+          .ss-text-desktop { display: none !important; }
+          .ss-text-mobile { display: block !important; }
           .ss-berufe-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .ss-berufe-grid > div { min-width: 0; padding: 1.25rem 1rem !important; }
+          .ss-berufe-grid > div > span:last-child { overflow-wrap: break-word; min-width: 0; }
           .ss-eigenkapital-grid { grid-template-columns: 1fr !important; background: none !important; }
           .ss-hero { padding-top: 7rem !important; padding-bottom: 3rem !important; }
           .ss-hero-grid { grid-template-columns: 1fr !important; min-height: auto !important; gap: 1.5rem !important; }
@@ -355,15 +366,16 @@ export default function Selbststaendige() {
 
         <div className="fade-in ss-loesung-grid">
           {[
-            ['Unterlagen-Check', 'Ich prüfe was fehlt und optimiere es für die Weiterverarbeitung der Bank. Das spart wertvolle Zeit für Sie.'],
-            ['Zahlen die überzeugen', 'Ich verstehe Bilanzen und BWAs und finde die passenden Argumente für die Bank.'],
-            ['Banken-Matching', 'Ich kenne die Banken, die Selbstständige verstehen – und bringe Sie gezielt dorthin.'],
-            ['Schnelle Abwicklung', 'Bei vollständigen Unterlagen reiche ich Ihren Antrag innerhalb einer Woche ein.'],
-          ].map(([titel, text], i) => (
+            ['Unterlagen-Check', 'Ich prüfe was fehlt und optimiere es für die Weiterverarbeitung der Bank. Das spart wertvolle Zeit für Sie.', 'Ich prüfe & optimiere Ihre Unterlagen.'],
+            ['Zahlen die überzeugen', 'Ich verstehe Bilanzen und BWAs und finde die passenden Argumente für die Bank.', 'Ich verstehe Bilanzen & BWAs.'],
+            ['Banken-Matching', 'Ich kenne die Banken, die Selbstständige verstehen – und bringe Sie gezielt dorthin.', 'Ich kenne die passenden Banken.'],
+            ['Schnelle Abwicklung', 'Bei vollständigen Unterlagen reiche ich Ihren Antrag innerhalb einer Woche ein.', 'Antrag innerhalb einer Woche.'],
+          ].map(([titel, text, textMobile], i) => (
             <div key={i} style={{ background: 'var(--anthrazit)', padding: '2rem 2.5rem', textAlign: 'center' }}>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '4.5rem', fontWeight: 600, color: 'rgba(187,159,213,0.5)', lineHeight: 1, marginBottom: '1rem' }}>0{i + 1}</div>
               <h3 style={{ fontSize: '1rem', fontWeight: 600, color: 'white', marginBottom: '0.75rem', letterSpacing: '0.02em' }}>{titel}</h3>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="ss-text-desktop" style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="ss-text-mobile" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, fontWeight: 300 }}>{textMobile}</p>
             </div>
           ))}
         </div>
@@ -449,16 +461,17 @@ export default function Selbststaendige() {
           </p>
         </div>
 
-        <div className="fade-in" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '2.5rem' }}>
+        <div className="fade-in ss-foerder-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '2.5rem' }}>
           {[
-            ['KfW 124', 'Wohneigentumsprogramm', 'Bis 100.000 € ohne Einkommensgrenze. Für jeden der baut oder kauft – auch kombinierbar mit anderen Programmen. Klassiker für Selbstständige.'],
-            ['KfW 297/298', 'Klimafreundlicher Neubau', 'Bis 150.000 € für energieeffiziente Neubauten. Je besser der Energiestandard, desto besser der Zinssatz.'],
-            ['IBB Berlin', 'Landesförderung Berlin', 'Die Investitionsbank Berlin bietet in Verbindung mit den KfW Darlehen zusätzliche Programme für Berliner Wohneigentümer.'],
-          ].map(([nr, titel, text]) => (
+            ['KfW 124', 'Wohneigentumsprogramm', 'Bis 100.000 € ohne Einkommensgrenze. Für jeden der baut oder kauft – auch kombinierbar mit anderen Programmen. Klassiker für Selbstständige.', 'Bis 100.000 € ohne Einkommensgrenze.'],
+            ['KfW 297/298', 'Klimafreundlicher Neubau', 'Bis 150.000 € für energieeffiziente Neubauten. Je besser der Energiestandard, desto besser der Zinssatz.', 'Bis 150.000 € für energieeffiziente Neubauten.'],
+            ['IBB Berlin', 'Landesförderung Berlin', 'Die Investitionsbank Berlin bietet in Verbindung mit den KfW Darlehen zusätzliche Programme für Berliner Wohneigentümer.', 'Zusätzliche Programme für Berliner Wohneigentümer.'],
+          ].map(([nr, titel, text, textMobile]) => (
             <div key={nr} style={{ background: 'white', border: '1px solid rgba(187,159,213,0.2)', padding: '2rem', borderRadius: 2 }}>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '0.9rem', fontWeight: 600, color: 'var(--lila-dark)', marginBottom: '0.4rem', letterSpacing: '0.06em' }}>{nr}</div>
               <h3 style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.3rem', fontWeight: 600, color: 'var(--anthrazit)', marginBottom: '0.75rem', lineHeight: 1.2 }}>{titel}</h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-light)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="ss-text-desktop" style={{ fontSize: '0.88rem', color: 'var(--text-light)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="ss-text-mobile" style={{ fontSize: '0.85rem', color: 'var(--text-light)', lineHeight: 1.6, fontWeight: 300 }}>{textMobile}</p>
             </div>
           ))}
         </div>
@@ -543,11 +556,11 @@ export default function Selbststaendige() {
 
         <div className="ss-ablauf fade-in">
           {[
-            ['01', 'Erstgespräch', 'Wir besprechen Ihre Situation, Wünsche und Möglichkeiten – kostenlos und unverbindlich.'],
-            ['02', 'Unterlagen-Analyse', 'Ich prüfe Ihre Unterlagen und bereite alles bankfertig auf – damit Ihre Zahlen die Bank überzeugen.'],
-            ['03', 'Antrag einreichen', 'Bei vollständigen Unterlagen reiche ich Ihren Antrag innerhalb einer Woche ein.'],
-            ['04', 'Bankentscheidung & Abschluss', 'Die Bank prüft – kann bis zu 4–5 Wochen dauern. Ich begleite Sie durch den gesamten Prozess.'],
-          ].map(([num, titel, text], i) => (
+            ['01', 'Erstgespräch', 'Wir besprechen Ihre Situation, Wünsche und Möglichkeiten – kostenlos und unverbindlich.', 'Kostenlos & unverbindlich.'],
+            ['02', 'Unterlagen-Analyse', 'Ich prüfe Ihre Unterlagen und bereite alles bankfertig auf – damit Ihre Zahlen die Bank überzeugen.', 'Bankfertig aufbereitet.'],
+            ['03', 'Antrag einreichen', 'Bei vollständigen Unterlagen reiche ich Ihren Antrag innerhalb einer Woche ein.', 'Innerhalb einer Woche.'],
+            ['04', 'Bankentscheidung & Abschluss', 'Die Bank prüft – kann bis zu 4–5 Wochen dauern. Ich begleite Sie durch den gesamten Prozess.', 'Ich begleite Sie durchgehend.'],
+          ].map(([num, titel, text, textMobile], i) => (
             <div key={i} style={{ padding: '0 2rem 2rem', textAlign: 'center', position: 'relative', zIndex: 1 }}>
               <div style={{
                 width: 56, height: 56, borderRadius: '50%',
@@ -557,7 +570,8 @@ export default function Selbststaendige() {
                 fontFamily: 'var(--font-cormorant)', fontSize: '1.4rem', fontWeight: 600, color: 'var(--lila)'
               }}>{num}</div>
               <h3 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--anthrazit)', marginBottom: '0.6rem' }}>{titel}</h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-light)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="ss-text-desktop" style={{ fontSize: '0.85rem', color: 'var(--text-light)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="ss-text-mobile" style={{ fontSize: '0.82rem', color: 'var(--text-light)', lineHeight: 1.6, fontWeight: 300 }}>{textMobile}</p>
             </div>
           ))}
         </div>

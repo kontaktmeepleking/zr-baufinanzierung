@@ -82,11 +82,11 @@ export default function Foerderdarlehen() {
   ]
 
   const bafaMassnahmen = [
-    ['Gebäudehülle', 'Dämmung von Dach, Fassade und Kellerdecke – je effizienter, desto höher die Förderung.'],
-    ['Anlagentechnik', 'Moderne Lüftungsanlagen, effiziente Heizungsregler, smarte Gebäudesteuerung.'],
-    ['Heizungsoptimierung', 'Hydraulischer Abgleich und Optimierung bestehender Heizanlagen.'],
-    ['Fachplanung & Baubegleitung', 'Kosten für Energieberater werden teilweise mitgefördert.'],
-    ['Energieberatung', 'Unabhängige Energieberatung für Wohngebäude (BEG) – zuschussfähig über BAFA.'],
+    ['Gebäudehülle', 'Dämmung von Dach, Fassade und Kellerdecke – je effizienter, desto höher die Förderung.', 'Dämmung von Dach, Fassade & Kellerdecke.'],
+    ['Anlagentechnik', 'Moderne Lüftungsanlagen, effiziente Heizungsregler, smarte Gebäudesteuerung.', 'Lüftung, Heizungsregler, smarte Steuerung.'],
+    ['Heizungsoptimierung', 'Hydraulischer Abgleich und Optimierung bestehender Heizanlagen.', 'Hydraulischer Abgleich Ihrer Heizung.'],
+    ['Fachplanung & Baubegleitung', 'Kosten für Energieberater werden teilweise mitgefördert.', 'Energieberater-Kosten teilweise gefördert.'],
+    ['Energieberatung', 'Unabhängige Energieberatung für Wohngebäude (BEG) – zuschussfähig über BAFA.', 'Unabhängige Energieberatung, zuschussfähig.'],
   ]
 
   return (
@@ -116,6 +116,7 @@ export default function Foerderdarlehen() {
         .fd-bafa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .fd-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(255,255,255,0.08); margin-top: 4rem; max-width: 900px; margin: 4rem auto 0; }
         .fd-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+        .fd-text-mobile { display: none; }
         @media (max-width: 768px) {
           .fd-float-btn { width: 52px !important; height: 52px !important; padding: 0 !important; border-radius: 50% !important; justify-content: center !important; bottom: 1.25rem !important; right: 1.25rem !important; }
           .fd-float-btn span { display: none !important; }
@@ -126,7 +127,11 @@ export default function Foerderdarlehen() {
           .fd-mobile-menu .mob-cta { background: var(--lila); color: white !important; padding: 0.75rem 1.25rem !important; border-radius: 2px; border-bottom: none !important; margin-top: 1rem; text-align: center; font-weight: 500; }
           .fd-kfw-grid { grid-template-columns: 1fr !important; }
           .fd-weitere-grid { grid-template-columns: 1fr !important; }
-          .fd-bafa-grid { grid-template-columns: 1fr !important; }
+          .fd-bafa-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .fd-bafa-grid > div { padding: 1.25rem 1rem !important; min-width: 0; overflow-wrap: break-word; }
+          .fd-bafa-grid > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+          .fd-text-desktop { display: none !important; }
+          .fd-text-mobile { display: block !important; }
           .fd-stats-grid { grid-template-columns: 1fr !important; }
           .fd-footer { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 1rem !important; padding: 2.5rem 6% !important; }
           .fd-footer ul { flex-wrap: wrap !important; justify-content: center !important; gap: 1rem 1.5rem !important; padding: 0 !important; }
@@ -425,14 +430,15 @@ export default function Foerderdarlehen() {
         </div>
 
         <div className="fd-bafa-grid fade-in">
-          {bafaMassnahmen.map(([titel, text]) => (
+          {bafaMassnahmen.map(([titel, text, textMobile]) => (
             <div key={titel} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(187,159,213,0.15)', borderRadius: 2, padding: '1.75rem 1.75rem', textAlign: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem', marginBottom: '0.9rem' }}>
                 <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--lila)', flexShrink: 0 }}></span>
                 <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: 'white', margin: 0, letterSpacing: '0.04em' }}>{titel}</h3>
                 <span style={{ display: 'inline-block', width: 20, height: 1, background: 'var(--lila)', flexShrink: 0 }}></span>
               </div>
-              <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, fontWeight: 300, margin: 0 }}>{text}</p>
+              <p className="fd-text-desktop" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7, fontWeight: 300, margin: 0 }}>{text}</p>
+              <p className="fd-text-mobile" style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.6, fontWeight: 300, margin: 0 }}>{textMobile}</p>
             </div>
           ))}
         </div>

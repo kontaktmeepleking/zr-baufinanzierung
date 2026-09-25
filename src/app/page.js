@@ -77,6 +77,7 @@ export default function Home() {
         .btn-dark:hover { background: #1a2428; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(-1px); }
         .leistung-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
         .leistung-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.28); }
+        .leistung-text-mobile { display: none; }
         .nav-logo { transition: transform 0.2s ease; display: block; text-decoration: none; }
         .nav-logo:hover { transform: scale(1.07); }
         .nav-link { transition: color 0.3s, border-color 0.3s, transform 0.2s ease; display: inline-block; }
@@ -118,7 +119,12 @@ export default function Home() {
           .unterschied-text  { order: 1; grid-column: auto !important; grid-row: auto !important; }
           .unterschied-img   { order: 2; grid-column: auto !important; grid-row: auto !important; height: 280px !important; }
           .unterschied-quote { order: 3; grid-column: auto !important; grid-row: auto !important; }
-          .grid-3col { grid-template-columns: 1fr !important; }
+          .grid-3col { grid-template-columns: repeat(2, 1fr) !important; }
+          .leistung-card { padding: 1.5rem 1.25rem !important; text-align: center !important; min-width: 0; overflow-wrap: break-word; }
+          .leistung-card > div:first-child { font-size: 2.1rem !important; margin-bottom: 0.5rem !important; }
+          .leistung-card > div:nth-child(2) { font-size: 0.92rem !important; margin-bottom: 0.5rem !important; }
+          .leistung-text-desktop { display: none !important; }
+          .leistung-text-mobile { display: block !important; }
           .testimonial-grid { grid-template-columns: 1fr !important; }
           .testimonial-featured { grid-column: 1 !important; flex-direction: column !important; }
           .testimonial-featured-img { display: none !important; }
@@ -274,17 +280,18 @@ export default function Home() {
         </div>
         <div className="grid-3col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5px', background: 'rgba(255,255,255,0.08)' }}>
           {[
-            ['01', 'Persönliche Beratung', 'Kein Callcenter, keine Warteschleifen. Sie haben eine direkte Ansprechpartnerin – von Anfang bis Ende.'],
-            ['02', 'Beste Konditionen', 'Durch den Vergleich von über 500 Bankpartnern finde ich die Finanzierung, die wirklich zu Ihrer Situation passt.'],
-            ['03', 'Vollständige Begleitung', 'Von der Strategie über die Auszahlung bis zur letzten Rate. Ich bin dabei – auch auf der Baustelle.'],
-            ['04', 'Zahlen die überzeugen', 'Besonders für Selbstständige: Ich bereite Ihre Unterlagen so auf, dass Banken Ihre Stärken sofort erkennen.'],
-            ['05', 'Schnell & Digital', 'Beratung per Video, Telefon oder vor Ort – flexibel nach Ihrem Zeitplan. Digitale Prozesse, persönlicher Service.'],
-            ['06', '100% kostenlos für Sie', 'Als unabhängige Vermittlerin werde ich von der Bank vergütet – für Sie entstehen keine Mehrkosten.'],
-          ].map(([num, title, text]) => (
+            ['01', 'Persönliche Beratung', 'Kein Callcenter, keine Warteschleifen. Sie haben eine direkte Ansprechpartnerin – von Anfang bis Ende.', 'Direkte Ansprechpartnerin, keine Warteschleifen.'],
+            ['02', 'Beste Konditionen', 'Durch den Vergleich von über 500 Bankpartnern finde ich die Finanzierung, die wirklich zu Ihrer Situation passt.', '500+ Bankpartner im Vergleich für Sie.'],
+            ['03', 'Vollständige Begleitung', 'Von der Strategie über die Auszahlung bis zur letzten Rate. Ich bin dabei – auch auf der Baustelle.', 'Von der Idee bis zur letzten Rate.'],
+            ['04', 'Zahlen die überzeugen', 'Besonders für Selbstständige: Ich bereite Ihre Unterlagen so auf, dass Banken Ihre Stärken sofort erkennen.', 'Ihre Unterlagen bankgerecht aufbereitet.'],
+            ['05', 'Schnell & Digital', 'Beratung per Video, Telefon oder vor Ort – flexibel nach Ihrem Zeitplan. Digitale Prozesse, persönlicher Service.', 'Video, Telefon oder vor Ort – nach Ihrem Zeitplan.'],
+            ['06', '100% kostenlos für Sie', 'Als unabhängige Vermittlerin werde ich von der Bank vergütet – für Sie entstehen keine Mehrkosten.', 'Für Sie keine Mehrkosten.'],
+          ].map(([num, title, text, textMobile]) => (
             <div key={num} className="fade-in leistung-card" style={{ background: 'var(--anthrazit)', padding: '2.5rem' }}>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '3.5rem', fontWeight: 400, color: 'rgba(187,159,213,0.5)', lineHeight: 1, marginBottom: '1rem' }}>{num}</div>
               <div style={{ fontSize: '1rem', fontWeight: 500, color: 'white', marginBottom: '0.75rem' }}>{title}</div>
-              <div style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300 }}>{text}</div>
+              <div className="leistung-text-desktop" style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, fontWeight: 300 }}>{text}</div>
+              <div className="leistung-text-mobile" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, fontWeight: 300 }}>{textMobile}</div>
             </div>
           ))}
         </div>
@@ -380,6 +387,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <a href="/selbststaendige" style={{ display: 'inline-block', marginTop: '1.5rem', fontSize: '0.88rem', color: 'var(--lila)', fontWeight: 500, textDecoration: 'none', borderBottom: '1px solid var(--lila)', paddingBottom: '2px' }}>Mehr für Selbstständige erfahren →</a>
           </div>
           {/* Angestellte */}
           <div className="fade-in" style={{ background: 'white', padding: '3.5rem' }}>

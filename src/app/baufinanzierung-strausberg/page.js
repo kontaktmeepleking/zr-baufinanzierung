@@ -84,9 +84,9 @@ export default function BaufinanzierungStrausberg() {
   ]
 
   const praxisbeispiele = [
-    ['Strausberg Stadt', 'Haus im Familienbesitz gehalten', 'Erfolgreiche Finanzierung einer komplexen Erbauseinandersetzung, sodass die Immobilie in der Familie bleiben konnte.'],
-    ['Strausberg Vorstadt', 'Traum vom Eigenheim erfüllt', 'Punktgenaue Strukturierung der Finanzierung für den Kauf eines Einfamilienhauses.'],
-    ['Strausberg Stadt', 'Kauf von Eigentumswohnungen', 'Maßgeschneiderte Konzepte für Eigennutzer und Kapitalanleger beim Erwerb von Wohnungseigentum.'],
+    ['Strausberg Stadt', 'Haus im Familienbesitz gehalten', 'Erfolgreiche Finanzierung einer komplexen Erbauseinandersetzung, sodass die Immobilie in der Familie bleiben konnte.', 'Erbauseinandersetzung erfolgreich finanziert.'],
+    ['Strausberg Vorstadt', 'Traum vom Eigenheim erfüllt', 'Punktgenaue Strukturierung der Finanzierung für den Kauf eines Einfamilienhauses.', 'Finanzierung für den Hauskauf strukturiert.'],
+    ['Strausberg Stadt', 'Kauf von Eigentumswohnungen', 'Maßgeschneiderte Konzepte für Eigennutzer und Kapitalanleger beim Erwerb von Wohnungseigentum.', 'Konzepte für Eigennutzer & Anleger.'],
   ]
 
   return (
@@ -124,7 +124,9 @@ export default function BaufinanzierungStrausberg() {
         .st-pers-grid { display: grid; grid-template-columns: 1fr 0.8fr; align-items: center; gap: 2.5rem; text-align: left; }
         .st-pers-img-wrap { position: relative; height: clamp(260px, 32vw, 380px); }
         .st-praxis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .st-reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .st-spez-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .st-text-mobile { display: none; }
         .st-lagen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(255,255,255,0.08); }
         .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
         .faq-btn { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; text-align: left; gap: 1rem; }
@@ -156,7 +158,12 @@ export default function BaufinanzierungStrausberg() {
           .st-heim-img-frame { height: 260px !important; }
           .st-pers-grid { grid-template-columns: 1fr !important; text-align: center !important; gap: 1.5rem !important; }
           .st-pers-img-wrap { height: 300px !important; margin-top: 1rem; }
-          .st-praxis-grid { grid-template-columns: 1fr !important; text-align: center !important; }
+          .st-praxis-grid { grid-template-columns: repeat(2, 1fr) !important; text-align: center !important; }
+          .st-praxis-grid > div { padding: 1.5rem 1.25rem !important; min-width: 0; overflow-wrap: break-word; }
+          .st-praxis-grid > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+          .st-reviews-grid { grid-template-columns: 1fr !important; text-align: center !important; }
+          .st-text-desktop { display: none !important; }
+          .st-text-mobile { display: block !important; }
           .st-spez-grid { grid-template-columns: 1fr !important; text-align: center !important; }
           .st-lagen-grid { grid-template-columns: 1fr !important; background: none !important; }
           .st-hero-btns { flex-direction: column !important; align-items: stretch !important; }
@@ -368,11 +375,12 @@ export default function BaufinanzierungStrausberg() {
         </div>
 
         <div className="fade-in st-praxis-grid">
-          {praxisbeispiele.map(([lage, titel, text]) => (
+          {praxisbeispiele.map(([lage, titel, text, textMobile]) => (
             <div key={titel} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(187,159,213,0.2)', padding: '2rem', borderRadius: 2 }}>
               <div style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '0.75rem' }}>{lage}</div>
               <h3 style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.3rem', fontWeight: 600, color: 'white', marginBottom: '0.75rem', lineHeight: 1.25 }}>{titel}</h3>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="st-text-desktop" style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+              <p className="st-text-mobile" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, fontWeight: 300 }}>{textMobile}</p>
             </div>
           ))}
         </div>
@@ -381,7 +389,7 @@ export default function BaufinanzierungStrausberg() {
           <GoogleRatingBadge reviewCount={10} />
         </div>
 
-        <div className="fade-in st-praxis-grid">
+        <div className="fade-in st-reviews-grid">
           {googleBewertungen.map(([name, kontext, text]) => (
             <div key={name} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(187,159,213,0.2)', padding: '2rem', borderRadius: 2 }}>
               <div style={{ color: 'var(--lila)', fontSize: '0.85rem', marginBottom: '0.75rem', letterSpacing: '0.05em' }}>★★★★★</div>
