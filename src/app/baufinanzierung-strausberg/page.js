@@ -118,6 +118,7 @@ export default function BaufinanzierungStrausberg() {
         .st-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 2rem; min-height: calc(100vh - 88px); }
         .st-hero-img-frame { width: 100%; max-width: 620px; height: 460px; position: relative; overflow: hidden; border: 1px solid rgba(187,159,213,0.35); box-shadow: 10px 10px 0px rgba(187,159,213,0.25); }
         .st-hero-mobile-img { display: none; }
+        .st-badge-mobile { display: none !important; }
         .st-heim-grid { display: grid; grid-template-columns: 1fr 0.85fr; align-items: center; gap: 3rem; }
         .st-heim-img-frame { width: 100%; height: 420px; position: relative; overflow: hidden; border: 1px solid rgba(187,159,213,0.3); box-shadow: 10px 10px 0px var(--lila-light); }
         .st-pers-grid { display: grid; grid-template-columns: 1fr 0.8fr; align-items: center; gap: 2.5rem; text-align: left; }
@@ -142,10 +143,14 @@ export default function BaufinanzierungStrausberg() {
           .st-footer ul { flex-wrap: wrap !important; justify-content: center !important; gap: 1rem 1.5rem !important; padding: 0 !important; }
           .st-hero { padding-top: 6rem !important; padding-bottom: 3rem !important; }
           .st-hero-grid { grid-template-columns: 1fr !important; min-height: auto !important; gap: 2.5rem !important; }
-          .st-hero-content { display: flex !important; flex-direction: column !important; padding: 1.25rem 6% 3rem !important; }
+          .st-hero-content { display: flex !important; flex-direction: column !important; gap: 1.5rem !important; padding: 1.25rem 6% 3rem !important; }
+          .st-hero-content > * { margin-top: 0 !important; margin-bottom: 0 !important; }
           .st-hero-img-wrap { display: none !important; }
           .st-hero-mobile-img { display: flex; justify-content: center; margin-bottom: 1.5rem; }
           .st-hero-img-frame { height: 240px !important; max-width: 100% !important; }
+          .st-badge-mobile { display: flex !important; justify-content: center; }
+          .st-badge-desktop { display: none !important; }
+          .st-hero-phone { flex-wrap: wrap !important; gap: 0.3rem 0.5rem !important; }
           .st-heim-grid { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center !important; }
           .st-heim-img-wrap { order: -1; }
           .st-heim-img-frame { height: 260px !important; }
@@ -228,10 +233,10 @@ export default function BaufinanzierungStrausberg() {
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 75% 68% at 32% 42%, rgba(187,159,213,0.12) 0%, rgba(187,159,213,0.04) 52%, transparent 74%)', pointerEvents: 'none', zIndex: 1 }} />
 
         <div className="fade-in st-hero-content" style={{ textAlign: 'center', position: 'relative', zIndex: 3, padding: '4rem 4% 4rem 8%' }}>
-          <p style={{ order: 1, fontSize: '0.78rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
-            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
+          <p style={{ order: 1, fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
+            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'rgba(255,255,255,0.25)' }}></span>
             Baufinanzierung in Strausberg
-            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'var(--lila)' }}></span>
+            <span style={{ display: 'inline-block', width: 32, height: 1, background: 'rgba(255,255,255,0.25)' }}></span>
           </p>
           <h1 style={{ order: 2, fontFamily: 'var(--font-cormorant)', fontWeight: 600, color: 'white', lineHeight: 1.05, marginBottom: '1rem', textAlign: 'center' }}>
             <span style={{ display: 'block', fontSize: 'clamp(2rem, 3.8vw, 4rem)', fontStyle: 'normal' }}>Unabhängige Baufinanzierung</span>
@@ -260,18 +265,23 @@ export default function BaufinanzierungStrausberg() {
             <a href="/kontakt" className="btn-primary">Jetzt Erstgespräch für Strausberg vereinbaren</a>
             <a href="#spezialisierung" className="btn-ghost">Meine Spezialisierung</a>
           </div>
-          <div style={{ order: 7, display: 'flex', gap: '2.5rem', marginTop: '2.5rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div className="st-badge-mobile" style={{ order: 7 }}>
+            <GoogleRatingBadge reviewCount={10} />
+          </div>
+          <div style={{ order: 8, display: 'flex', gap: '2.5rem', marginTop: '2.5rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
             <div>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>500+</div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Bankpartner</div>
             </div>
-            <GoogleRatingBadge reviewCount={10} />
+            <div className="st-badge-desktop">
+              <GoogleRatingBadge reviewCount={10} />
+            </div>
             <div>
               <div style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.2rem', fontWeight: 600, color: 'white', lineHeight: 1 }}>100%</div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '0.2rem' }}>Kostenlos für Sie</div>
             </div>
           </div>
-          <a href="tel:+4917684405479" style={{ order: 8, display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', justifyContent: 'center' }}>
+          <a href="tel:+4917684405479" className="st-hero-phone" style={{ order: 9, display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.5rem', textDecoration: 'none', color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', justifyContent: 'center' }}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--lila)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.31a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 18z"/>
             </svg>
