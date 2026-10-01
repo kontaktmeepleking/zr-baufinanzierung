@@ -408,7 +408,8 @@ export default function Home() {
         </div>
         <div className="fade-in" style={{ textAlign: 'center', marginTop: '2.5rem' }}>
           <p style={{ fontSize: '0.78rem', color: 'var(--text-light)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>Persönlich vor Ort</p>
-          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: 600, color: 'var(--anthrazit)', lineHeight: 1, marginBottom: '0.75rem' }}>Berlin & Brandenburg</p>
+          <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', fontWeight: 600, color: 'var(--anthrazit)', lineHeight: 1, marginBottom: '0.5rem' }}>Berlin & Brandenburg</p>
+          <p style={{ fontSize: '0.9rem', color: 'var(--text-light)', fontWeight: 300, marginBottom: '0.75rem' }}>Zu Hause in Fredersdorf-Vogelsdorf – ich komme zu Ihnen.</p>
           <a href="/baufinanzierung-strausberg" style={{ fontSize: '0.9rem', color: 'var(--lila-dark)', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)', paddingBottom: '1px' }}>Auch zu Hause in Strausberg →</a>
         </div>
       </section>

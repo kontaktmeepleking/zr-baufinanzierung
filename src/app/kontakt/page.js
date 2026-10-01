@@ -164,7 +164,7 @@ export default function Kontakt() {
                 <div>
                   <div style={{ fontSize: '0.72rem', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '0.3rem' }}>Region</div>
                   <div style={{ fontSize: '1.05rem', fontWeight: 500, color: 'white', marginBottom: '0.25rem' }}>Berlin & Brandenburg</div>
-                  <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', fontWeight: 300 }}>Vor Ort, per Video oder Telefon</div>
+                  <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.45)', fontWeight: 300 }}>Aus Fredersdorf-Vogelsdorf – bei Ihnen vor Ort, per Video oder Telefon</div>
                 </div>
               </div>
             </div>

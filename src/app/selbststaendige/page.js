@@ -306,7 +306,7 @@ export default function Selbststaendige() {
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, background: 'linear-gradient(to bottom, transparent, var(--anthrazit))', pointerEvents: 'none' }} />
           </div>
           <p style={{ order: 5, fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300, maxWidth: 560, margin: '0 auto 2rem' }}>
-            Ich bin Franziska Ritsche, unabhängige Baufinanzierungsberaterin für Selbstständige in Berlin und Brandenburg – kostenlos, mit über 500 Bankpartnern.
+            Ich bin Franziska Ritsche aus Fredersdorf-Vogelsdorf, unabhängige Baufinanzierungsberaterin für Selbstständige in Berlin und Brandenburg – kostenlos, mit über 500 Bankpartnern.
           </p>
           <div className="ss-hero-btns" style={{ order: 6, display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '2rem' }}>
             <a href="/kontakt" className="btn-primary">Kostenloses Erstgespräch</a>
