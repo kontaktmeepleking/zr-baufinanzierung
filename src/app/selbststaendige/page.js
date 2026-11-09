@@ -393,11 +393,12 @@ export default function Selbststaendige() {
             Kein Eigenkapital?<br /><em style={{ color: 'var(--lila)', fontStyle: 'italic' }}>Kein Ausschlusskriterium.</em>
           </h2>
           <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, fontWeight: 300 }}>
-            Viele Selbstständige glauben, ohne 20–30 % Eigenkapital kommt keine Finanzierung zustande. Das stimmt nicht automatisch. Wenn die Rahmenbedingungen passen ist auch eine Finanzierung ganz ohne Eigenkapital möglich.
+            Viele Selbstständige glauben, ohne 20–30 % <a href="/glossar/eigenkapital" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.6)' }}>Eigenkapital</a> kommt keine Finanzierung zustande. Das stimmt nicht automatisch. Wenn die Rahmenbedingungen passen ist auch eine Finanzierung ganz ohne Eigenkapital möglich.
           </p>
         </div>
 
-        <div className="fade-in ss-eigenkapital-grid">
+        {/* data-nosnippet: Google zog diese Stichpunkte als Such-Snippet (Stand 09.11.2026) */}
+        <div className="fade-in ss-eigenkapital-grid" data-nosnippet>
           <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(187,159,213,0.2)', padding: '2.5rem' }}>
             <div style={{ fontSize: '0.72rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--lila)', marginBottom: '1rem' }}>Standard-Weg</div>
             <h3 style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.6rem', fontWeight: 600, color: 'white', marginBottom: '1rem' }}>Mit Eigenkapital</h3>
@@ -457,7 +458,7 @@ export default function Selbststaendige() {
             KfW &amp; IBB – auch für<br /><em style={{ color: 'var(--lila-dark)', fontStyle: 'italic' }}>Selbstständige nutzbar.</em>
           </h2>
           <p style={{ fontSize: '1rem', color: 'var(--text-light)', lineHeight: 1.8, fontWeight: 300 }}>
-            Staatliche Förderprogramme stehen nicht nur Angestellten offen. Als Selbstständige/r in Berlin &amp; Brandenburg können Sie von günstigen KfW-Darlehen und – in Berlin – zusätzlich von IBB-Programmen profitieren. Ich kombiniere diese Töpfe für Sie so, dass Sie maximal davon profitieren.
+            Staatliche Förderprogramme stehen nicht nur Angestellten offen. Als Selbstständige/r in Berlin &amp; Brandenburg können Sie von günstigen <a href="/glossar/kfw-darlehen" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)' }}>KfW-Darlehen</a> und – in Berlin – zusätzlich von <a href="/glossar/ibb" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)' }}>IBB-Programmen</a> profitieren. Ich kombiniere diese Töpfe für Sie so, dass Sie maximal davon profitieren.
           </p>
         </div>
 
@@ -506,7 +507,7 @@ export default function Selbststaendige() {
             Jede Berufsgruppe hat<br /><em style={{ color: 'var(--lila-dark)', fontStyle: 'italic' }}>ihre eigene Logik.</em>
           </h2>
           <p style={{ fontSize: '0.95rem', color: 'var(--text-light)', lineHeight: 1.8, fontWeight: 300, marginTop: '1rem' }}>
-            Ich kenne die Unterschiede: Ein GmbH-Geschäftsführer wird anders bewertet als ein Freiberufler mit EÜR. Ein Handwerker anders als ein Arzt. Ich bringe Sie zur Bank, die Ihre Struktur versteht.
+            Ich kenne die Unterschiede: Ein GmbH-Geschäftsführer wird anders bewertet als ein Freiberufler mit <a href="/glossar/euer" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)' }}>EÜR</a>. Ein Handwerker anders als ein Arzt. Ich bringe Sie zur Bank, die Ihre Struktur versteht.
           </p>
         </div>
 

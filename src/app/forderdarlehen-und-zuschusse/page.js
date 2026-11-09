@@ -248,7 +248,7 @@ export default function Foerderdarlehen() {
             Wer baut oder kauft, lässt oft Tausende Euro liegen.
           </h2>
           <p style={{ fontSize: '1rem', color: 'var(--text-light)', lineHeight: 1.8, fontWeight: 300 }}>
-            KfW, BAFA und Landesförderungen bieten gemeinsam Milliarden an Fördermitteln – doch viele davon werden nicht abgerufen, weil der Überblick fehlt. Ich kenne die Programme, ihre Voraussetzungen und ihre Kombinationsmöglichkeiten. Das ist mein Job – und für Sie eine Sorge weniger.
+            <a href="/glossar/kfw-darlehen" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)' }}>KfW</a>, <a href="/glossar/bafa-foerderung" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)' }}>BAFA</a> und Landesförderungen bieten gemeinsam Milliarden an Fördermitteln – doch viele davon werden nicht abgerufen, weil der Überblick fehlt. Ich kenne die Programme, ihre Voraussetzungen und ihre Kombinationsmöglichkeiten. Das ist mein Job – und für Sie eine Sorge weniger.
           </p>
         </div>
 

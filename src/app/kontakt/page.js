@@ -6,11 +6,13 @@ import Image from 'next/image'
 export default function Kontakt() {
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
     setSending(true)
+    setError(false)
     const form = e.target
     const data = new FormData(form)
     try {
@@ -21,7 +23,11 @@ export default function Kontakt() {
       })
       if (res.ok) {
         setSubmitted(true)
+      } else {
+        setError(true)
       }
+    } catch {
+      setError(true)
     } finally {
       setSending(false)
     }
@@ -244,6 +250,21 @@ export default function Kontakt() {
                     </select>
                   </div>
 
+                  {/* Quelle – cookiefreie Messung, woher Anfragen kommen */}
+                  <div>
+                    <label htmlFor="quelle" style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'var(--anthrazit)', marginBottom: '0.4rem' }}>Wie sind Sie auf mich aufmerksam geworden?</label>
+                    <select id="quelle" name="quelle" required defaultValue="" className="kontakt-input" style={{ ...inputStyle, appearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', cursor: 'pointer' }}>
+                      <option value="" disabled>Bitte wählen …</option>
+                      <option value="Google-Suche">Google-Suche</option>
+                      <option value="Google Maps / Unternehmensprofil">Google Maps / Google-Profil</option>
+                      <option value="Google-Anzeige">Google-Anzeige</option>
+                      <option value="Empfehlung">Empfehlung von Bekannten</option>
+                      <option value="Makler">Über einen Makler</option>
+                      <option value="Social Media">Social Media</option>
+                      <option value="Sonstiges">Sonstiges</option>
+                    </select>
+                  </div>
+
                   {/* Nachricht */}
                   <div>
                     <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 500, color: 'var(--anthrazit)', marginBottom: '0.4rem' }}>Ihre Nachricht</label>
@@ -257,6 +278,12 @@ export default function Kontakt() {
                       Ich habe die <a href="/datenschutz" style={{ color: 'var(--lila-dark)', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)', paddingBottom: '1px' }}>Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.
                     </label>
                   </div>
+
+                  {error && (
+                    <p role="alert" style={{ fontSize: '0.88rem', color: '#a33', lineHeight: 1.6 }}>
+                      Leider konnte Ihre Nachricht gerade nicht gesendet werden. Bitte versuchen Sie es noch einmal oder rufen Sie mich direkt an: <a href="tel:+4917684405479" style={{ color: 'inherit', fontWeight: 500 }}>0176 84 40 54 79</a>
+                    </p>
+                  )}
 
                   <button type="submit" disabled={sending} className="kontakt-btn">
                     {sending ? 'Wird gesendet …' : 'Nachricht senden'}

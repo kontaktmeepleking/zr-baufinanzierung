@@ -329,7 +329,7 @@ export default function Home() {
               Ich begleite meine Kunden von der ersten Idee bis zur letzten Rate. Das bedeutet: Ich bin auch dann da, wenn die Bank für die nächste Auszahlung Fotos vom Baufortschritt braucht. Ich fahre auf die Baustelle, mache die Fotos und kümmere mich um die Auszahlung – damit Sie sich um Ihr Haus kümmern können.
             </p>
             <p style={{ fontSize: '1rem', color: 'var(--text-light)', lineHeight: 1.8, fontWeight: 300, marginBottom: '2rem' }}>
-              Bilanzen, BWAs, Bankgespräche – das ist mein Job. Ich hinterfrage und bereite alles so auf, dass die Bank einen guten Eindruck bekommt. Sie müssen sich da nicht alleine durchkämpfen.
+              Bilanzen, <a href="/glossar/bwa" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)' }}>BWAs</a>, Bankgespräche – das ist mein Job. Ich hinterfrage und bereite alles so auf, dass die Bank einen guten Eindruck bekommt. Sie müssen sich da nicht alleine durchkämpfen.
             </p>
             <a href="/warum-ich" style={{ fontSize: '0.9rem', color: 'var(--lila-dark)', fontWeight: 500, textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)', paddingBottom: '2px', transition: 'color 0.2s, border-color 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.color = 'var(--lila)'; e.currentTarget.style.borderColor = 'var(--lila)' }}
@@ -398,9 +398,17 @@ export default function Home() {
               so entspannt wie möglich gestalten.
             </p>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              {['Erstfinanzierung & Anschlussfinanzierung', 'Umschuldung & Forward Darlehen', 'KfW-Förderungen & Zuschüsse optimal nutzen', 'Vergleich von über 500 Bankpartnern'].map(item => (
-                <li key={item} style={{ fontSize: '0.88rem', color: 'var(--text)', display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
-                  <span style={{ color: 'var(--lila-dark)', flexShrink: 0 }}>—</span>{item}
+              {[
+                ['Erstfinanzierung & ', ['Anschlussfinanzierung', '/glossar/anschlussfinanzierung']],
+                [['Umschuldung', '/glossar/umschuldung'], ' & ', ['Forward Darlehen', '/glossar/forward-darlehen']],
+                ['KfW-Förderungen & Zuschüsse optimal nutzen'],
+                ['Vergleich von über 500 Bankpartnern'],
+              ].map((parts, idx) => (
+                <li key={idx} style={{ fontSize: '0.88rem', color: 'var(--text)', display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                  <span style={{ color: 'var(--lila-dark)', flexShrink: 0 }}>—</span>
+                  <span>{parts.map((p, i) => typeof p === 'string' ? p : (
+                    <a key={i} href={p[1]} style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid var(--lila-dark)' }}>{p[0]}</a>
+                  ))}</span>
                 </li>
               ))}
             </ul>
@@ -624,7 +632,7 @@ export default function Home() {
             ))}
           </div>
           <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, textAlign: 'center' }}>
-            Bauzinsen ändern sich täglich und variieren je nach Eigenkapital, Beleihungsauslauf und Bonität. Der Rechner zeigt Ihnen sofort Ihre persönlichen Konditionen – auf Basis echter Marktdaten.
+            Bauzinsen ändern sich täglich und variieren je nach <a href="/glossar/eigenkapital" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.5)' }}>Eigenkapital</a>, <a href="/glossar/beleihungsauslauf" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.5)' }}>Beleihungsauslauf</a> und <a href="/glossar/bonitaetspruefung" style={{ color: 'inherit', textDecoration: 'none', borderBottom: '1px solid rgba(187,159,213,0.5)' }}>Bonität</a>. Der Rechner zeigt Ihnen sofort Ihre persönlichen Konditionen – auf Basis echter Marktdaten.
           </p>
         </div>
 
